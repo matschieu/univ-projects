@@ -1,0 +1,13 @@
+<!ELEMENT gol (config, aliveCells)>
+
+<!ELEMENT config (width, height, rate, generation, icons)>
+<!ELEMENT width (#PCDATA)>
+<!ELEMENT height (#PCDATA)>
+<!ELEMENT rate (#PCDATA)>
+<!ELEMENT generation (#PCDATA)>
+<!ELEMENT icons (#PCDATA)>
+
+<!ELEMENT aliveCells (cell*)>
+<!ELEMENT cell (x, y)>
+<!ELEMENT x (#PCDATA)>
+<!ELEMENT y (#PCDATA)>

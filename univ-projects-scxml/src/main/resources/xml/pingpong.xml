@@ -1,0 +1,33 @@
+
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" initialstate="ping">
+
+	<datamodel>
+		<data name="cpt" expr="0"/>
+	</datamodel>
+
+	<state id="ping">
+		<onentry>
+			<log label="'ping'" expr="'Entree dans ping'" />
+			<if cond="cpt eq 5">
+				<log label="'cpt'" expr="cpt"/>
+			</if>
+		</onentry>
+		<transition event="pingtopong" target="pong" />
+		<onexit>
+			<log label="'ping'" expr="'Sortie de ping'" />
+			<assign name="cpt" expr="cpt + 1"/>
+		</onexit>
+	</state>
+
+	<state id="pong">
+		<onentry>
+			<log label="'pong'" expr="'Entree dans pong'" />
+		</onentry>
+		<transition event="pongtoping" target="ping" />
+		<onexit>
+			<log label="'pong'" expr="'Sortie de pong'" />
+			<assign name="cpt" expr="cpt + 1"/>
+		</onexit>
+	</state>
+
+</scxml>

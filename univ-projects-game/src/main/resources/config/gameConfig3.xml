@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE game SYSTEM "./dtd/gameConfiguration.dtd">
+
+<game>
+
+  <localisation>./lang/Francais.xml</localisation>
+
+  <map>
+    <mapClass>game.map.GameMap8</mapClass>
+    <param>10</param>
+    <param>5</param>
+  </map>
+
+  <cells>
+    <cellClass>game.map.Field</cellClass>
+    <rate>25</rate>
+    <cellClass>game.map.Wood</cellClass>
+    <rate>25</rate>
+    <cellClass>game.map.Water</cellClass>
+    <rate>25</rate>
+    <cellClass>game.map.Mountain</cellClass>
+    <rate>25</rate>
+  </cells>
+
+  <hero>
+    <heroClass>game.characters.Hero</heroClass>
+    <name>Mathieu</name>
+    <energy>200</energy>
+    <strength>100</strength>
+    <strategy>game.strategy.HumanStrategy</strategy>
+    <action>game.actions.Quit</action>
+    <action>game.actions.Rest</action>
+    <action>game.actions.Status</action>
+    <action>game.actions.View</action>
+    <action>game.actions.DisplayMap</action>
+    <action>game.actions.Move</action>
+    <action>game.actions.PickUp</action>
+    <action>game.actions.Use</action>
+    <action>game.actions.Interact</action>
+    <action>game.actions.Attack</action>
+    <action>game.actions.MakeWish</action>
+    <action>game.actions.Options</action>
+  </hero>
+
+  <characters>
+
+    <nb>15</nb>
+
+    <character>
+      <characterClass>game.characters.Monster</characterClass>
+      <rate>60</rate>
+      <energy>50</energy>
+      <strength>40</strength>
+      <strategy>game.strategy.RandomStrategy</strategy>
+      <action>game.actions.Rest</action>
+      <action>game.actions.Move</action>
+      <action>game.actions.PickUp</action>
+      <action>game.actions.Use</action>
+      <action>game.actions.Interact</action>
+      <action>game.actions.Attack</action>
+    </character>
+
+    <character>
+      <characterClass>game.characters.Thief</characterClass>
+      <rate>20</rate>
+      <energy>150</energy>
+      <strength>5</strength>
+      <strategy>game.strategy.RandomStrategy</strategy>
+      <action>game.actions.Rest</action>
+      <action>game.actions.Move</action>
+      <action>game.actions.PickUp</action>
+      <action>game.actions.Use</action>
+      <action>game.actions.Steal</action>
+    </character>
+
+    <character>
+      <characterClass>game.characters.Healer</characterClass>
+      <rate>20</rate>
+      <energy>200</energy>
+      <strength>0</strength>
+      <strategy>game.strategy.RandomStrategy</strategy>
+    </character>
+
+  </characters>
+
+  <items>
+
+    <nb>25</nb>
+
+    <item>
+      <itemClass>game.items.Burger</itemClass>
+      <rate>25</rate>
+    </item>
+    <item>
+      <itemClass>game.items.Potion</itemClass>
+      <rate>25</rate>
+    </item>
+    <item>
+      <itemClass>game.items.Purse</itemClass>
+      <rate>25</rate>
+    </item>
+    <item>
+      <itemClass>game.items.Treasure</itemClass>
+      <rate>25</rate>
+    </item>
+
+  </items>
+
+</game>
+
