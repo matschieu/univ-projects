@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="START_IMAGE">img/start_image.png</entry>
+	<entry key="INFO_IMAGE">img/info_image.png</entry>
+	
+	<entry key="ALIVE_CELL_ICON">img/tux.png</entry>
+	<entry key="DEAD_CELL_ICON">img/ice.png</entry>
+
+	<entry key="APPLY_ICON">img/valid.png</entry>
+	<entry key="NEXT_ICON">img/next.png</entry>
+	<entry key="START_ICON">img/start.png</entry>
+	<entry key="STOP_ICON">img/stop.png</entry>
+	<entry key="LOAD_ICON">img/load.png</entry>
+	<entry key="SAVE_ICON">img/save.png</entry>
+	<entry key="INFO_ICON">img/info.png</entry>
+	<entry key="ERROR_ICON">img/error.png</entry>
+	
+</properties>

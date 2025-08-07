@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- ENGLISH -->
+	
+	<entry key="APPLICATION_NAME">Game of life</entry>
+	<entry key="APPLICATION_DESC"></entry>
+	<entry key="AUTHOR_NAME">Matschieu</entry>
+	<entry key="AUTHOR_MAIL">x</entry>
+	<entry key="AUTHOR_WEBSITE">x</entry>
+	
+	<entry key="STARTING_APPLICATION">Starting application</entry>
+	<entry key="CLOSING_APPLICATION">Closing application</entry>
+	
+	<entry key="XML_FILE_FILTER_DESC">XML files</entry>
+	
+	<entry key="CONFIG_PANEL_HEIGHT">Height</entry>
+	<entry key="CONFIG_PANEL_WIDTH">Width</entry>
+	<entry key="CONFIG_PANEL_RATE">Rate</entry>
+	<entry key="CONFIG_PANEL_DIM_UNIT">px</entry>
+	<entry key="CONFIG_PANEL_RATE_UNIT">%</entry>
+	<entry key="CONFIG_PANEL_YES">Yes</entry>
+	<entry key="CONFIG_PANEL_NO">No</entry>
+	<entry key="CONFIG_PANEL_ICONS">Icons ?</entry>
+	<entry key="CONFIG_PANEL_APPLY_BUTTON">Apply</entry>
+	<entry key="CONFIG_PANEL_APPLY_NOTIF">Changes applied [[[WIDTH]];[[HEIGHT]];[[RATE]];[[ICONS]]]</entry>
+	<entry key="CONFIG_PANEL_NOTIF">Error, the configuration has an invalid values</entry>
+	
+	<entry key="TOOL_BAR_NEXT_BUTTON">Next</entry>
+	<entry key="TOOL_BAR_START_BUTTON">Start</entry>
+	<entry key="TOOL_BAR_STOP_BUTTON">Stop</entry>
+	<entry key="TOOL_BAR_LOAD_BUTTON">Load</entry>
+	<entry key="TOOL_BAR_SAVE_BUTTON">Save</entry>
+	<entry key="TOOL_BAR_INFO_BUTTON">Info</entry>
+	<entry key="TOOL_BAR_ERROR_TITLE">Error</entry>
+	<entry key="TOOL_BAR_NEXT_NOTIF">Display the next generation [[[GENERATION]]]</entry>
+	<entry key="TOOL_BAR_START_NOTIF">Starting a new evolution [[[GENERATION]]]</entry>
+	<entry key="TOOL_BAR_STOP_NOTIF">Evolution stopped [[[GENERATION]]]</entry>
+	<entry key="TOOL_BAR_LOAD_NOTIF">Loading a configurations file</entry>
+	<entry key="TOOL_BAR_SAVE_NOTIF">Saving a configurations file</entry>
+	<entry key="TOOL_BAR_INFO_NOTIF">Display application's informations</entry>
+	<entry key="TOOL_BAR_LOAD_NOTIF">Configurations file succesfully loaded [[[FILE]]]</entry>
+	<entry key="TOOL_BAR_SAVE_NOTIF">Configurations file succesfully saved [[[FILE]]]</entry>
+	<entry key="TOOL_BAR_ERROR_1_NOTIF">Inexistant file</entry>
+	<entry key="TOOL_BAR_ERROR_2_NOTIF">Error, file format is invalid [[[FILE]]]</entry>
+	
+	<entry key="GOL_ENVIRONMENT_NOTIF">Generation [[GENERATION]]</entry>
+	
+</properties>

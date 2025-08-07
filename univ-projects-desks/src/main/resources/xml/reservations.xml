@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reservationslist SYSTEM "./reservations.dtd">
+
+<reservationslist>
+  <reservation>
+    <resid>2</resid>
+    <deskid>3</deskid>
+    <managerid>2</managerid>
+    <traineeid>3</traineeid>
+    <startday>1</startday>
+    <startyear>2010</startyear>
+    <endday>1</endday>
+    <endyear>2010</endyear>
+  </reservation>
+  <reservation>
+    <resid>3</resid>
+    <deskid>2</deskid>
+    <managerid>2</managerid>
+    <traineeid>3</traineeid>
+    <startday>1</startday>
+    <startyear>2010</startyear>
+    <endday>1</endday>
+    <endyear>2010</endyear>
+  </reservation>
+  <reservation>
+    <resid>5</resid>
+    <deskid>4</deskid>
+    <managerid>2</managerid>
+    <traineeid>3</traineeid>
+    <startday>2</startday>
+    <startyear>2010</startyear>
+    <endday>2</endday>
+    <endyear>2010</endyear>
+  </reservation>
+  <reservation>
+    <resid>6</resid>
+    <deskid>4</deskid>
+    <managerid>2</managerid>
+    <traineeid>3</traineeid>
+    <startday>4</startday>
+    <startyear>2010</startyear>
+    <endday>18</endday>
+    <endyear>2010</endyear>
+  </reservation>
+</reservationslist>
+

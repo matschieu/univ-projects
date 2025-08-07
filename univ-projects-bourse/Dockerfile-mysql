@@ -1,0 +1,12 @@
+FROM mysql
+
+LABEL maintainer=Matschieu
+
+ENV MYSQL_ALLOW_EMPTY_PASSWORD="yes"
+ENV MYSQL_ROOT_PASSWORD="password"
+ENV MYSQL_DATABASE="bourse"
+
+ADD sql/mkdb.sql /docker-entrypoint-initdb.d
+RUN chmod -R 775 /docker-entrypoint-initdb.d
+
+HEALTHCHECK --interval=5s CMD  mysql -u root -ppassword -h 127.0.0.1 -P 3306 -e 'use bourse; select count(*) from Utilisateurs;'

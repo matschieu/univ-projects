@@ -1,0 +1,101 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+	<display-name>FTP CLient</display-name>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<!-- Connection -->
+	<servlet>
+		<servlet-name>connection</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientConnection</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>connection</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientConnection</url-pattern>
+	</servlet-mapping>
+
+	<!-- Login -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientLogin</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientLogin</url-pattern>
+	</servlet-mapping>
+
+	<!--- Deconnection -->
+	<servlet>
+		<servlet-name>deconnection</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientDeconnection</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>deconnection</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientDeconnection</url-pattern>
+	</servlet-mapping>
+
+	<!--- LIST -->
+	<servlet>
+		<servlet-name>list</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientList</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>list</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientList</url-pattern>
+	</servlet-mapping>
+
+	<!--- CWD -->
+	<servlet>
+		<servlet-name>cwd</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientCwd</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>cwd</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientCwd</url-pattern>
+	</servlet-mapping>
+
+	<!--- CDUP -->
+	<servlet>
+		<servlet-name>cdup</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientCdup</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>cdup</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientCdup</url-pattern>
+	</servlet-mapping>
+
+	<!--- STORE -->
+	<servlet>
+		<servlet-name>store</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientStore</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>store</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientStore</url-pattern>
+	</servlet-mapping>
+
+	<!--- RETR -->
+	<servlet>
+		<servlet-name>retr</servlet-name>
+		<servlet-class>com.github.matschieu.ftp.client.web.FTPClientRetr</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>retr</servlet-name>
+		<url-pattern>/ftp/client/web/FTPClientRetr</url-pattern>
+	</servlet-mapping>
+
+</web-app>

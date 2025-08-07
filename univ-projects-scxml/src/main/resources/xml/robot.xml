@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" initialstate="off">
+
+	<datamodel>
+		<!-- battery level -->
+		<data name="battery" expr="50"/>
+		<!-- Current position -->
+		<data name="posX" expr="50"/>
+		<data name="posY" expr="50"/>
+		<!-- Environment size -->
+		<data name="sizeX" expr="100"/>
+		<data name="sizeY" expr="100"/>
+	</datamodel>
+
+	<!-- In this state, the robot is on -->
+	<state id="on">
+
+		<onentry>
+			<log label="'on'" expr="'Démarrage de la machine'" />
+		</onentry>
+
+		<initial>
+			<transition target="onInit" />
+		</initial>
+
+		<state id="onInit">
+			<transition target="off" cond="battery eq 0" />
+			<transition target="position" cond="battery != 0" />
+		</state>
+
+		<!-- In this state, the robot can move -->
+		<state id="position">
+
+			<onentry>
+				<log label="'position'" expr="'Prêt à se déplacer'"/>
+				<!-- To check if the robot is out of the environment -->
+				<if cond="posX &lt; 0">
+					<assign name="posX" expr="sizeX - 1" />
+				</if>
+				<if cond="posX &gt; sizeX - 1">
+					<assign name="posX" expr="0" />
+				</if>
+				<if cond="posY &lt; 0">
+					<assign name="posY" expr="sizeY - 1" />
+				</if>
+				<if cond="posY &gt; sizeY - 1">
+					<assign name="posY" expr="0" />
+				</if>
+			</onentry>
+
+			<!-- This transition turns the robot off -->
+			<transition event="turnOff" target="off" />
+
+			<!-- This transition represents a deplacement to the north direction -->
+			<transition event="moveNorth" target="onInit">
+				<assign name="posY" expr="posY + 1" />
+				<log label="'position'" expr="'deplacement NORD, nouvelle position : (' + posX + ';' + posY + ')'" />
+			</transition>
+
+			<!-- This transition represents a deplacement to the south direction -->
+			<transition event="moveSouth" target="onInit">
+				<assign name="posY" expr="posY - 1" />
+				<log label="'position'" expr="'deplacement SUD, nouvelle position : (' + posX + ';' + posY + ')'" />
+			</transition>
+
+			<!-- This transition represents a deplacement to the east direction -->
+			<transition event="moveEast" target="onInit">
+				<assign name="posX" expr="posX + 1" />
+				<log label="'position'" expr="'deplacement EST, nouvelle position : (' + posX + ';' + posY + ')'" />
+			</transition>
+
+			<!-- This transition represents a deplacement to the west direction -->
+			<transition event="moveWest" target="onInit">
+				<assign name="posX" expr="posX - 1" />
+				<log label="'position'" expr="'deplacement OUEST, nouvelle position : (' + posX + ';' + posY + ')'" />
+			</transition>
+
+			<onexit>
+				<!-- When the robot is on, all action consumes the battery -->
+				<assign name="battery" expr="battery - 1" />
+				<log label="'position'" expr="'Niveau de batterie : ' + battery + '%'" />
+			</onexit>
+
+		</state>
+
+	</state>
+
+	<!-- In this state, the robot is off -->
+	<state id="off">
+
+		<onentry>
+			<log label="'off'" expr="'Extinction de la machine'" />
+		</onentry>
+
+		<initial>
+			<transition target="offInit" />
+		</initial>
+
+		<state id="offInit">
+			<transition target="batteryEmpty" cond="battery eq 0" />
+			<transition target="batteryOK" cond="battery != 0" />
+		</state>
+
+		<!-- In this state, the battery isn't empty -->
+		<state id="batteryOK">
+
+			<onentry>
+				<log label="'off.batteryOK'" expr="'Machine éteinte, batterie OK'" />
+			</onentry>
+
+			<!-- This transition turns the robot on -->
+			<transition event="turnOn" target="on" />
+
+		</state>
+
+		<!-- In this state, the battery is empty -->
+		<state id="batteryEmpty">
+
+			<onentry>
+				<log label="'off.batteryEmpty'" expr="'Machine éteinte, batterie vide'" />
+			</onentry>
+
+			<!-- The event reload is used to reload the battery -->
+			<transition event="reload" target="batteryOK">
+				<assign name="battery" expr="100" />
+			</transition>
+
+		</state>
+
+		<onexit>
+			<assign name="battery" expr="battery - 1" />
+			<log label="'position'" expr="'Niveau de batterie : ' + battery + '%'" />
+		</onexit>
+
+	</state>
+
+</scxml>

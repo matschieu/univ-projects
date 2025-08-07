@@ -1,0 +1,9 @@
+<!ELEMENT personslist (person*)>
+
+<!ELEMENT person (id, name, firstname, post, trainee)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT post (#PCDATA)>
+<!ELEMENT trainee (#PCDATA)>
+
