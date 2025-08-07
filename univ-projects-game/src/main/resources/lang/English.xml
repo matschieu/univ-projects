@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- ENGLISH -->
+	
+	<entry key="GAME_NAME">PROJECT GAME</entry>
+	<entry key="AUTHOR_1">Matschieu</entry>
+	
+	<!-- Package game.actions -->
+	
+	<entry key="ATTACK_EXECUTE_1">[[ENNEMY_NAME]] lost [[CHAR_STRENGTH]] of energy, He has now [[ENNEMY_ENERGY]] of energy</entry>
+	<entry key="ATTACK_EXECUTE_2">[[CHAR_NAME]] attacked [[ENNEMY_NAME]]</entry>
+	<entry key="ATTACK_GETDESCRIPTION">Attack</entry>
+	
+	<entry key="HUMANSTRATEGY_PREVIOUS">Previous</entry>
+	<entry key="HUMANSTRATEGY_CHOICECHARS">[[CHAR_NAME]] [energy:[[CHAR_ENERGY]];strength:[[CHAR_STRENGTH]]]</entry>
+
+	<entry key="INTERACT_EXECUTE_1">[[CHAR_NAME]] hasn't enough monney to interact with [[CONTACT_NAME]]</entry>
+	<entry key="INTERACT_EXECUTE_2">[[CHAR_NAME]] interacted with [[CONTACT_NAME]]</entry>
+	<entry key="INTERACT_EXECUTE_3">[[CONTACT_NAME]] completly healed [[CHAR_NAME]]</entry>
+	<entry key="INTERACT_EXECUTE_4">[[CONTACT_NAME]] gave [[ENERGY]] of energy to [[CHAR_NAME]]</entry>
+	<entry key="INTERACT_GETDESCRIPTION">Interact</entry>
+
+	<entry key="MOVE_EXECUTE">[[CHAR_NAME]] moved on a field of [[CELL_DESC]] type and lost [[CELL_ENERGY]] of energy, he has now [[CHAR_ENERGY]] of energy</entry>
+	<entry key="MOVE_GETDESCRIPTION">Move</entry>
+
+	<entry key="PICKUP_EXECUTE">[[CHAR_NAME]] picked up [[ITEM_DESC]]</entry>
+	<entry key="PICKUP_GETDESCRIPTION">Pick up an item</entry>
+
+	<entry key="QUIT_EXECUTE">[[CHAR_NAME]] decided to quit the game</entry>
+	<entry key="QUIT_GETDESCRIPTION">Quit the game</entry>
+	
+	<entry key="REST_EXECUTE">[[CHAR_NAME]] taked a breath</entry>
+	<entry key="REST_GETDESCRIPTION">Take a breath</entry>
+
+	<entry key="STATUS_EXECUTE_1">Status of [[CHAR_NAME]]</entry>
+	<entry key="STATUS_EXECUTE_2">-> Energy : [[CHAR_ENERGY]]</entry>
+	<entry key="STATUS_EXECUTE_3">-> Strength : [[CHAR_STRENGTH]]</entry>
+	<entry key="STATUS_EXECUTE_4">-> Monney : [[CHAR_GOLD]]</entry>
+	<entry key="STATUS_GETDESCRIPTION">Character's status</entry>
+
+	<entry key="VIEW_EXECUTE_1">Fields over [[CHAR_NAME]]</entry>
+	<entry key="VIEW_EXECUTE_2">-> Field of [[CELL_DESC]] type (direction [[DIRECTION]]) | </entry>
+	<entry key="VIEW_EXECUTE_3">not reachable</entry>
+	<entry key="VIEW_EXECUTE_4">items</entry>
+	<entry key="VIEW_EXECUTE_5">no items</entry>
+	<entry key="VIEW_EXECUTE_6">characters</entry>
+	<entry key="VIEW_EXECUTE_7">no characters</entry>
+	<entry key="VIEW_GETDESCRIPTION">View of the field</entry>
+
+	<entry key="USE_EXECUTE">[[CHAR_NAME]] used [[ITEM_DESC]]</entry>
+	<entry key="USE_GETDESCRIPTION">Use an item</entry>
+
+	<entry key="DISPLAYMAP_GETDESCRIPTION">Display the map</entry>
+
+	<entry key="WAIT_GETDESCRIPTION">Wait</entry>
+
+	<entry key="OPTIONS_GETDESCRIPTION">Options</entry>
+
+	<entry key="SELECTLANGUAGE_GETDESCRIPTION">Change the language</entry>
+
+	<entry key="CHANGEHERONAME_EXECUTE">Hero's name has changed to [[CHAR_NAME]]</entry>
+	<entry key="CHANGEHERONAME_GETDESCRIPTION">Change hero's name</entry>
+
+	<entry key="LOAD_GETDESCRIPTION">Load a game</entry>
+
+	<entry key="SAVE_GETDESCRIPTION">Save the game</entry>
+
+	<entry key="NEWGAME_EXECUTE">Beginning of a new game</entry>
+	<entry key="NEWGAME_GETDESCRIPTION">New game</entry>
+
+	<entry key="MAKEWISH_EXECUTE_1">[[CHAR_NAME]] regained [[ENERGY]] of energy, He has now [[CHAR_ENERGY]] of energy</entry>
+	<entry key="MAKEWISH_EXECUTE_2">Nothing's happened...</entry>
+	<entry key="MAKEWISH_GETDESCRIPTION">Make a wish</entry>
+
+	<entry key="STEAL_EXECUTE">[[CHAR_NAME]] stole [[MONNEY]] of monney to [[ENNEMY_NAME]]</entry>	
+	<entry key="STEAL_GETDESCRIPTION">Steal</entry>
+
+	<!-- Package game.map -->
+	
+	<entry key="GAMESQUAREDMAP_BUILD">Enter hero's name</entry>
+	<entry key="GAMESQUAREDMAP_GETSTRINGMAP"> => H = you are here</entry>	
+
+	<entry key="FIELD_DESCRIPTION">Field</entry>
+	<entry key="FIELD_SYMBOLE">.</entry>
+		
+	<entry key="MOUNTAIN_DESCRIPTION">Mountain</entry>
+	<entry key="MOUNTAIN_SYMBOLE">#</entry>
+	
+	<entry key="WATER_DESCRIPTION">Water</entry>
+	<entry key="WATER_SYMBOLE">~</entry>
+	
+	<entry key="WOOD_DESCRIPTION">Forest</entry>
+	<entry key="WOOD_SYMBOLE">*</entry>
+	
+	<entry key="DESERT_DESCRIPTION">Desert</entry>
+	<entry key="DESERT_SYMBOLE">'</entry>
+	
+	<entry key="DIRECTION4_EAST">East</entry>
+	<entry key="DIRECTION4_NORTH">North</entry>
+	<entry key="DIRECTION4_WEST">West</entry>
+	<entry key="DIRECTION4_SOUTH">South</entry>
+	
+	<entry key="DIRECTION8_EAST">East</entry>
+	<entry key="DIRECTION8_NORTH">North</entry>
+	<entry key="DIRECTION8_WEST">West</entry>
+	<entry key="DIRECTION8_SOUTH">South</entry>
+	<entry key="DIRECTION8_NORTH_EAST">North-east</entry>
+	<entry key="DIRECTION8_NORTH_WEST">North-west</entry>
+	<entry key="DIRECTION8_SOUTH_EAST">South-east</entry>
+	<entry key="DIRECTION8_SOUTH_WEST">South-west</entry>
+	
+	<!-- Package game.items -->
+
+	<entry key="FOOD_GETDESCRIPTION">[[FOOD_NAME]] (+[[FOOD_ENERGY]] of energy)</entry>
+	
+	<entry key="GOLD_GETDESCRIPTION">[[GOLD_NAME]] (value=[[GOLD_VALUE]])</entry>
+	
+	<entry key="BURGER_NAME">Burger</entry>
+	
+	<entry key="POTION_NAME">Potion</entry>
+	<entry key="POTION_GETDESCRIPTION">[[POTION_NAME]] (+/-[[POTION_ENERGY]] of energy or +[[POTION_STRENGTH]] of strength)</entry>
+	
+	<entry key="PURSE_NAME">Purse</entry>
+	
+	<entry key="TREASURE_NAME">Treasure</entry>
+	
+	<!-- Package game.characters -->
+	
+	<entry key="GAMECHARACTER_DIE">[[CHAR_NAME]] is dead !</entry>
+	<entry key="GAMECHARACTER_TOSTRING">[[CHAR_NAME]] [ E = [[CHAR_ENERGY]] | S = [[CHAR_STRENGTH]] | G = [[CHAR_GOLD]] ]</entry>
+	
+	<entry key="HEALER_NAME">Healer</entry>
+	<entry key="HEALER_SYMBOLE">G</entry>
+	<entry key="HEALER_ACTION">[[CHAR_NAME]] don't do anything</entry>
+	
+	<entry key="HERO_NAME">Hero</entry>
+	<entry key="HERO_SYMBOLE">H</entry>
+	<entry key="HERO_ACTION">Actions Choice</entry>
+	
+	<entry key="MONSTER_NAME">Monster</entry>
+	<entry key="MONSTER_SYMBOLE">M</entry>
+	
+	<entry key="THIEF_NAME">Thief</entry>
+	<entry key="THIEF_SYMBOLE">T</entry>
+	
+	<!-- Package game.xml -->
+	
+	<entry key="LOCALISATION_SELECTLANGUAGE">Please select a language</entry>
+	
+	<!-- Package game -->
+	
+	<entry key="ONEPLAYERGAME_PLAY_1">Loading settings [[[FILE_NAME]]]</entry>
+	<entry key="ONEPLAYERGAME_PLAY_2">OK</entry>
+	
+	<entry key="ONEPLAYERGAME_COMMONMETHODPLAY_1">Begining of the game</entry>
+	<entry key="ONEPLAYERGAME_COMMONMETHODPLAY_2">Turn</entry>
+	<entry key="ONEPLAYERGAME_COMMONMETHODPLAY_3">End of the game</entry>
+	
+	<entry key="ONEPLAYERGAME_HELP_1">Run [config_file | -map4 | -map8 | -h]</entry>
+	<entry key="ONEPLAYERGAME_HELP_2">Authors</entry>
+	<entry key="ONEPLAYERGAME_HELP_3">Context</entry>
+	<entry key="ONEPLAYERGAME_HELP_4">Computer science studies, S6 - 2009</entry>
+	<entry key="ONEPLAYERGAME_HELP_5">Software project</entry>
+		
+	<!-- Classe Run -->
+	
+	<entry key="RUN_ERROR_1">Error : incorrect parameter(s)</entry>
+	<entry key="RUN_ERROR_2">You should use -h option</entry>
+
+</properties>

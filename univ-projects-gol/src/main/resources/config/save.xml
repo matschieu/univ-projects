@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gol SYSTEM "./dtd/gol_dtd.dtd">
+
+<gol>
+
+	<config>
+		<width>15</width>
+		<height>15</height>
+		<rate>50</rate>
+		<generation>5</generation>
+		<icons>true</icons>
+	</config>
+
+	<aliveCells>
+		<cell>
+			<x>0</x>
+			<y>0</y>
+		</cell>
+		<cell>
+			<x>1</x>
+			<y>1</y>
+		</cell>
+		<cell>
+			<x>2</x>
+			<y>2</y>
+		</cell>
+		<cell>
+			<x>3</x>
+			<y>3</y>
+		</cell>
+	</aliveCells>
+
+</gol>
+

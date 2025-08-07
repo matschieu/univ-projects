@@ -1,0 +1,24 @@
+name: bourse
+
+services:
+
+  mysql:
+    build: 
+      dockerfile: Dockerfile-mysql
+    restart: always
+    ports:
+      - '3306:3306'
+    container_name: mysql
+
+  tomcat-app:
+    build:
+      dockerfile: Dockerfile-tomcat
+    restart: always
+    ports:
+      - '80:8080'
+    #network_mode: "host"
+    container_name: tomcat-app
+    depends_on:
+      mysql:
+        condition: service_healthy
+

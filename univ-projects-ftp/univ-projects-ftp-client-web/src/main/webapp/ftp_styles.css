@@ -1,0 +1,153 @@
+
+/* FTP client styles
+ * Matschieu 
+ */
+
+body {
+	font-family : arial, sans-serif;
+	font-size : 13.5px;
+	color : #000;
+	background : url("") #eee;
+}
+
+#mainPanel {
+	width : 700px;
+	padding : 5px;
+	border : 1px solid #999;
+	background : #fff;
+}
+
+#header {
+	height : 100px;
+}
+
+#imagePanel {
+	float : left;
+	width : 100px;
+	margin-top : 5px;
+	float : left;
+}
+
+#menuPanel {
+	width : 580px;
+	border : 1px solid #999;
+	margin-top : 60px;
+	padding : 2px;
+	background : #ddd;
+	float : right;
+}
+
+#successPanel {
+	color : #fff;
+	border : 1px solid #999;
+	background : #0c0;
+	margin-top : 15px;
+	padding : 2px;
+	vertical-align : middle;
+}
+
+.successTitle {
+	font-weight : bold;
+	font-size : 14px;
+	margin-bottom : 5px;
+}
+
+#errorPanel {
+	color : #fff;
+	border : 1px solid #999;
+	background : #c00;
+	margin-top : 15px;
+	padding : 2px;
+	vertical-align : middle;
+}
+
+.errorTitle {
+	font-weight : bold;
+	font-size : 14px;
+	margin-bottom : 15px;
+}
+
+.errorMessage, .successMessage {
+}
+
+.icon {
+	float : left;
+	margin-right : 5px;
+}
+
+.historyRequest {
+	color : #00a;
+}
+
+.historyResponseSuccess {
+	color : #0a0;
+}
+
+.historyResponseError {
+	color : #a00;
+}
+
+#historyPanel {
+	font-size : 11px;
+	font-family : courier;
+	background : #ddd;
+	border : 1px solid #999;
+	padding : 2px;
+}
+
+#historyTitle {
+	font-weight : bold;
+	font-size : 14px;
+	margin-top : 5px;
+}
+
+#contentPanel {
+	margin-top : 10px;
+	padding : 2px;
+}
+
+.listRow1 {
+	vertical-align : middle;
+	background : #eee;
+}
+
+.listRow2 {
+	vertical-align : middle;
+	background : #ddd;
+}
+
+#footer {
+	vertical-align : middle;
+	margin-top : 5px;
+	font-style : italic;
+	text-align : right;
+	font-size : 10px;
+}
+
+.link {
+	color : #000;
+	text-decoration : underline;
+}
+
+.link:hover {
+	color : #f60;
+}
+
+.center {
+	text-align : center;
+}
+
+.italic {
+	font-style : italic;
+}
+
+.bold {
+	font-weight : bold;
+}
+
+.normal {
+	font-weight : normal;
+	font-size : 13px;
+	font-family : arial, sans-serif;
+}
+

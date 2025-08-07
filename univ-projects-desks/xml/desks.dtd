@@ -1,0 +1,8 @@
+<!ELEMENT deskslist (desk*)>
+
+<!ELEMENT desk (id, number, building, room, description)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT building (#PCDATA)>
+<!ELEMENT room (#PCDATA)>
+<!ELEMENT description (#PCDATA)>

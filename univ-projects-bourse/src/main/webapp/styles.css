@@ -1,0 +1,162 @@
+table {
+	font-size : 10pt;
+	color : #4b58b1;
+	font-family : georgia, arial, sans-serif;
+	text-align : justify;
+}
+
+
+td {
+	padding : 2px;
+}
+th {
+	text-align:center;
+}
+
+/* TEXTES */
+
+.texte {
+	font-size : 10pt;
+	color : #4b58b1;
+	font-family : georgia, arial, sans-serif;
+	text-align : justify;
+}
+.titre1 {
+	font-size : 11pt;
+	color : #4b58b1;
+	font-weight : bold;
+	font-family : georgia, arial, sans-serif;
+	text-align : center;
+}
+.titre2 {
+	font-size : 11pt;
+	color : #4b58b1;
+	font-weight : bold;
+	font-family : georgia, arial, sans-serif;
+	text-align : center;
+	background : url("./img/fond02.png");
+}
+.copyright {
+	font-size : 7pt;
+	color : #4b58b1;
+	font-family : georgia, arial, sans-serif;
+	text-align : right;
+}
+.erreur {
+	font-size : 10pt;
+	color : #ee0000;
+	font-weight : bold;
+	text-align : center;
+	font-family : georgia, arial, sans-serif;
+}
+.texteGras {
+	font-weight : bold;
+}
+.texteItalique {
+	font-style : italic;
+}
+.texteCentre {
+	text-align : center;
+}
+.texteDroite {
+	text-align : right;
+}
+.texteGauche {
+	text-align : left;
+}
+
+/* LIENS */
+
+.lienMenu:link, .lienMenu:visited, .lienMenu:active {
+	font-size : 9pt;
+	color : #4b58b1;
+	font-weight : bold;
+	font-family : georgia, arial, sans-serif;
+	text-decoration : none;
+}
+.lienMenu:hover {
+	font-size : 9pt;
+	color : #ff9900;
+	font-weight : bold;
+	font-family : georgia, arial, sans-serif;
+	text-decoration : none;
+}
+.lien:link, .lien:visited, .lien:active {
+	font-size : 10pt;
+	color : #4b58b1;
+	font-family : georgia, arial, sans-serif;
+	text-decoration : none;
+}
+.lien:hover {
+	font-size : 10pt;
+	color : #ff9900;
+	font-family : georgia, arial, sans-serif;
+	text-decoration : none;
+}
+
+/* FORMULAIRE */
+
+.form {
+	border : 1px solid #00a;
+	font-size : 10pt;
+	color : #00a;
+	font-family : georgia, arial, sans-serif;
+}
+
+/* DESIGN */
+
+body {
+	background : #eee;
+}
+#cadre {
+	align : center;
+	width : 900px;
+	border : 1px solid #000;
+	background : #fff;
+	padding : 10px;
+	position : relative; 
+	left : 50%; 
+	margin-left : -450px; 
+}	
+#haut {
+	width : 900px;
+	height : 200px;
+	background-color:#f00;
+	background : url("./img/banniere.png");
+	border : 1px solid #000;
+	margin-bottom : 10px;
+}
+#menu {
+	width : 894px;
+	background-color:#f00;
+	background : url("./img/fond01.png");
+	border : 1px solid #000;
+	margin-bottom : 10px;
+	padding : 3px;
+}
+#containeur {
+	width : 900px;
+	margin-bottom : 10px;
+}
+#centre {
+	float : left;
+	width : 630px;
+	border : 1px solid #000;
+	padding : 3px;
+	margin-bottom : 10px;
+}
+#info {
+	float : right;
+	width : 248px;
+	border : 1px solid #000;
+	padding : 3px;
+	margin-bottom : 10px;
+}
+#bas {
+	clear : both;
+	width : 894px;
+	background-color:#f00;
+	background : url("./img/fond01.png");
+	border : 1px solid #000;
+	padding : 3px;
+}

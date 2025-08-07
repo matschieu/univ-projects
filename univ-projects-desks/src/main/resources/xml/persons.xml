@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personslist SYSTEM "./persons.dtd">
+
+<personslist>
+  <person>
+    <id>3</id>
+    <name>REDFIELD</name>
+    <firstname>Chris</firstname>
+    <post>Etudiant</post>
+    <trainee>1</trainee>
+  </person>
+  <person>
+    <id>2</id>
+    <name>BURTON</name>
+    <firstname>Barry</firstname>
+    <post>Enseignant</post>
+    <trainee>0</trainee>
+  </person>
+  <person>
+    <id>4</id>
+    <name>VALENTINE</name>
+    <firstname>Jill</firstname>
+    <post>Etudiant</post>
+    <trainee>1</trainee>
+  </person>
+</personslist>
+

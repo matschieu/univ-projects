@@ -1,0 +1,40 @@
+<!ELEMENT game (localisation, map, cells, hero, characters, items)>
+
+<!-- Name of the language file used -->
+<!ELEMENT localisation (#PCDATA)>
+
+<!ELEMENT map (mapClass, param*)>
+<!-- Name of the map class used by the game -->
+<!ELEMENT mapClass (#PCDATA)>
+<!-- Parameters used for the construction of the map -->
+<!ELEMENT param (#PCDATA)>
+
+<!-- Field types used by the map -->
+<!ELEMENT cells ((cellClass,rate)*)>
+<!-- The name of the class that represents this field type. -->
+<!ELEMENT cellClass (#PCDATA)>
+<!-- Rate used to know the number of this field to add to the map -->
+<!ELEMENT rate (#PCDATA)>
+
+<!ELEMENT hero (heroClass, name, energy, strength, strategy, action*)>
+<!-- Name of the hero class -->
+<!ELEMENT heroClass (#PCDATA)>
+<!-- Values used to initialize the hero/characters -->
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT energy (#PCDATA)>
+<!ELEMENT strength (#PCDATA)>
+<!ELEMENT strategy (#PCDATA)>
+<!-- Names of action classes enable for the hero/characters -->
+<!ELEMENT action (#PCDATA)>
+
+<!ELEMENT characters (nb, character*)>
+<!-- Number of characters/items on the map -->
+<!ELEMENT nb (#PCDATA)>
+<!ELEMENT character (characterClass, rate, energy, strength, strategy, action*)>
+<!-- Names of characters classes to add on the map -->
+<!ELEMENT characterClass (#PCDATA)>
+
+<!ELEMENT items (nb, item*)>
+<!ELEMENT item (itemClass,rate)>
+<!-- Names of items classes to add on the map -->
+<!ELEMENT itemClass (#PCDATA)>

@@ -1,0 +1,110 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>AchatVente</servlet-name>
+        <servlet-class>AchatVente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AchatVente</servlet-name>
+        <url-pattern>/AchatVente/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AjouterMaker</servlet-name>
+        <servlet-class>AjouterMaker</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjouterMaker</servlet-name>
+        <url-pattern>/AjouterMaker/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreerMarche</servlet-name>
+        <servlet-class>CreerMarche</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreerMarche</servlet-name>
+        <url-pattern>/CreerMarche/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Deconnexion</servlet-name>
+        <servlet-class>Deconnexion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Deconnexion</servlet-name>
+        <url-pattern>/Deconnexion/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HallOfFame</servlet-name>
+        <servlet-class>HallOfFame</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HallOfFame</servlet-name>
+        <url-pattern>/HallOfFame/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Ident</servlet-name>
+        <servlet-class>Ident</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ident</servlet-name>
+        <url-pattern>/Ident/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Inscription</servlet-name>
+        <servlet-class>Inscription</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Inscription</servlet-name>
+        <url-pattern>/Inscription/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListeMarche</servlet-name>
+        <servlet-class>ListeMarche</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListeMarche</servlet-name>
+        <url-pattern>/ListeMarche/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListeOrdres</servlet-name>
+        <servlet-class>ListeOrdres</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListeOrdres</servlet-name>
+        <url-pattern>/ListeOrdres/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PasserOrdre</servlet-name>
+        <servlet-class>PasserOrdre</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PasserOrdre</servlet-name>
+        <url-pattern>/PasserOrdre/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TerminerMarche</servlet-name>
+        <servlet-class>TerminerMarche</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TerminerMarche</servlet-name>
+        <url-pattern>/TerminerMarche/*</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
+

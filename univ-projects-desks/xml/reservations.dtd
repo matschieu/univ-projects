@@ -1,0 +1,11 @@
+<!ELEMENT reservationslist (reservation*)>
+
+<!ELEMENT reservation (resid, deskid, managerid, traineeid, startday, startyear, endday, endyear)>
+<!ELEMENT resid (#PCDATA)>
+<!ELEMENT deskid (#PCDATA)>
+<!ELEMENT managerid (#PCDATA)>
+<!ELEMENT traineeid (#PCDATA)>
+<!ELEMENT startday (#PCDATA)>
+<!ELEMENT startyear (#PCDATA)>
+<!ELEMENT endday (#PCDATA)>
+<!ELEMENT endyear (#PCDATA)>

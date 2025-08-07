@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- FRANCAIS -->
+	
+	<entry key="APPLICATION_NAME">Jeu de la vie</entry>
+	<entry key="APPLICATION_DESC"></entry>
+	<entry key="AUTHOR_NAME">Matschieu</entry>
+	<entry key="AUTHOR_MAIL">x</entry>
+	<entry key="AUTHOR_WEBSITE">x</entry>
+	
+	<entry key="STARTING_APPLICATION">Démarrage de l'application</entry>
+	<entry key="CLOSING_APPLICATION">Fermeture de l'application</entry>
+	
+	<entry key="XML_FILE_FILTER_DESC">Fichiers XML</entry>
+	
+	<entry key="CONFIG_PANEL_HEIGHT">Hauteur</entry>
+	<entry key="CONFIG_PANEL_WIDTH">Largeur</entry>
+	<entry key="CONFIG_PANEL_RATE">Taux</entry>
+	<entry key="CONFIG_PANEL_DIM_UNIT">px</entry>
+	<entry key="CONFIG_PANEL_RATE_UNIT">%</entry>
+	<entry key="CONFIG_PANEL_YES">Oui</entry>
+	<entry key="CONFIG_PANEL_NO">Non</entry>
+	<entry key="CONFIG_PANEL_ICONS">Icônes ?</entry>
+	<entry key="CONFIG_PANEL_APPLY_BUTTON">Appliquer</entry>
+	<entry key="CONFIG_PANEL_APPLY_NOTIF">Changements appliqués [[[WIDTH]];[[HEIGHT]];[[RATE]];[[ICONS]]]</entry>
+	<entry key="CONFIG_PANEL_NOTIF">Erreur, la configuration possède un paramètre incorrect</entry>
+	
+	<entry key="TOOL_BAR_NEXT_BUTTON">Suivant</entry>
+	<entry key="TOOL_BAR_START_BUTTON">Démarrer</entry>
+	<entry key="TOOL_BAR_STOP_BUTTON">Arrêter</entry>
+	<entry key="TOOL_BAR_LOAD_BUTTON">Charger</entry>
+	<entry key="TOOL_BAR_SAVE_BUTTON">Enregistrer</entry>
+	<entry key="TOOL_BAR_INFO_BUTTON">Info</entry>
+	<entry key="TOOL_BAR_ERROR_TITLE">Erreur</entry>
+	<entry key="TOOL_BAR_NEXT_NOTIF">Affichage de la génération suivante [[[GENERATION]]]</entry>
+	<entry key="TOOL_BAR_START_NOTIF">Démarrage d'une nouvelle évolution [[[GENERATION]]]</entry>
+	<entry key="TOOL_BAR_STOP_NOTIF">Arrêt de l'évolution [[[GENERATION]]]</entry>
+	<entry key="TOOL_BAR_LOAD_NOTIF">Chargement d'un fichier de configurations</entry>
+	<entry key="TOOL_BAR_SAVE_NOTIF">Savegarde d'un fichier de configurations</entry>
+	<entry key="TOOL_BAR_INFO_NOTIF">Affichage des informations de l'application</entry>
+	<entry key="TOOL_BAR_LOAD_NOTIF">Fichier de configurations chargé avec succès [[[FILE]]]</entry>
+	<entry key="TOOL_BAR_SAVE_NOTIF">Fichier de configurations enregistré avec succès [[[FILE]]]</entry>
+	<entry key="TOOL_BAR_ERROR_1_NOTIF">Fichier inexistant</entry>
+	<entry key="TOOL_BAR_ERROR_2_NOTIF">Erreur, le fichier n'est pas au bon format [[[FILE]]]</entry>
+	
+	<entry key="GOL_ENVIRONMENT_NOTIF">Génération [[GENERATION]]</entry>
+	
+</properties>
