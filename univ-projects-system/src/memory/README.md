@@ -1,4 +1,9 @@
-# BIBLIOTHEQUE D'ALLOCATION DYNAMIQUE DE MEMOIRE
+Bibliothèque d'allocation dynamique de mémoire
+==============
+
+**Author: Matschieu**
+
+# Sujet
 
 L'archive contient :
 * bam.h : la définition des fonctions de notre bibliothèque d'allocation dynamique.

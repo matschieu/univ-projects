@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
 	opts[3].parameter_description = "nb";
 	
 	opts[4].short_name = 'm';
-	opts[4].long_name = "mathieu";
+	opts[4].long_name = "matschieu";
 	opts[4].parameter_type = PARAM_DOUBLE;
 	opts[4].parameter_ptr = &mat;
 	opts[4].description = "mat";
@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
 	printf("kill %s\n", (kill ? "yes" : "no"));
 	printf("destr %s\n", (destr ? "yes" : "no"));
 	printf("ass %s=%s\n", (ass ? "yes" : "no"), ass);
-	printf("mathieu %s=%f\n", (mat ? "yes" : "no"), mat);
+	printf("matschieu %s=%f\n", (mat ? "yes" : "no"), mat);
 	
 	return EXIT_SUCCESS;
 }

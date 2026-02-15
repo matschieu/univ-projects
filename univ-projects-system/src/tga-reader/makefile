@@ -1,13 +1,15 @@
-
-# Matschieu
+# Needs libx11-dev to compile ; 
+# sudo apt install libx11-dev
 
 CC      = gcc
-CFLAGS  = -Wall -Werror -ansi -pedantic -m32
+CFLAGS  = -Wall -Werror -ansi -pedantic
 LDFLAGS = -lX11
 
 all: tga clean
 
 tga: main.o tga.o analyze.o window.o
+	# $(LDFLAGS) needs to be after the .o files else it will fail on linkage
+	$(CC) main.o tga.o analyze.o window.o $(LDFLAGS) -o tga
 analyze.o: analyze/analyze.o
 	mv analyze/*.o .
 window.o: window/window.o
