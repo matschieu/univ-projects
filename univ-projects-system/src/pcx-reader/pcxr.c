@@ -1,8 +1,4 @@
-/*
-Projet d'ASR2, semestre 2
-Matschieu
-DUT informatique, 1ère année, groupe E
-*/
+/* @author Matschieu */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -11,7 +7,7 @@ DUT informatique, 1ère année, groupe E
 #include "pcxr.h"
 #include "display.h"
 
-// D�claration de fonctions
+// Déclaration de fonctions
 int verifierParametres(int argc, char** argv);
 unsigned char* decompresser(FILE* image, int tailleImage, PCXPalette* imagePalette);
 unsigned char getOctet(FILE* image);
@@ -40,19 +36,19 @@ int main(int argc, char** argv) {
 		return 2;
 	}
 
-	// V�rification de la validit� des param�tres
+	// Vérification de la validité des paramètres
 	if (verifierParametres(argc, argv) == 1) return 1;
 	
 	// Lecture du header
 	if (fread(&imageHeader, sizeof(PCXHeader), 1, image) == -1) return 1;
 	
-	//V�rification de la version du fichier PCX
+	//Vérification de la version du fichier PCX
 	if ((imageHeader.version != 5) || (imageHeader.encoding != 1)) {
 		printf("\nFormat PCX incorrect, seul le format PCX version 5 avec RLE est prit en charge\n\n");
 		return 2;
 	}
 	
-	// R�cup�re les dimensions de l'image
+	// Récupère les dimensions de l'image
 	largeur = (int)(imageHeader.xMax + 1) - (int)(imageHeader.xMin);
 	hauteur = (int)(imageHeader.yMax + 1) - (int)(imageHeader.yMin);
 	tailleImage = largeur * hauteur;
@@ -60,7 +56,7 @@ int main(int argc, char** argv) {
 	// Lecture de la palette
 	if (fseek(image, - (TAILLE_PALETTE * sizeof(PCXPalette)), SEEK_END) == -1 || fread(&imagePalette, TAILLE_PALETTE * sizeof(PCXPalette), 1, image) == -1) return 1;
 		
-	// D�termine les effets de couleurs � appliquer
+	// Détermine les effets de couleurs à appliquer
 	for(i = 2; i < argc; i++) {
 		if (strcmp(argv[i], "-aide") == 0) afficherAide();
 		if (strcmp(argv[i], "-neg") == 0) effetNegatif(imagePalette);
@@ -77,7 +73,7 @@ int main(int argc, char** argv) {
 	// Lecture du raster
 	buffer = decompresser(image, tailleImage, imagePalette);
 
-	// D�termine les effets � appliquer sur le raster
+	// Détermine les effets à appliquer sur le raster
 	for(i = 2; i < argc; i++) {
 		if (strcmp(argv[i], "-inv") == 0) inversion(buffer, tailleImage);
 		if (strcmp(argv[i], "-neige") == 0) effetNeige(buffer, tailleImage);
@@ -86,7 +82,7 @@ int main(int argc, char** argv) {
 	}
 		
 	// affichage de l'image
-	//display(largeur, hauteur, buffer);
+	display(largeur, hauteur, buffer);
 	free(buffer);
 	
 	// Fermeture de l'image
@@ -96,7 +92,7 @@ int main(int argc, char** argv) {
 
 }
 
-// V�rification des param�tres de la ligne de commande
+// Vérification des paramètres de la ligne de commande
 int verifierParametres(int argc, char** argv) {
 	int i, j, paramValide, cmdValide;
 	char* arguments[15] = {"-aide", "-neg", "-noir", "-gris", "-rouge", "-bleu", "-vert", "-renb", "-sat", "-grib", "-melc", "-inv", "-neige", "-zoom2", "-zoom3"};
@@ -120,7 +116,7 @@ int verifierParametres(int argc, char** argv) {
 	return 0;
 }
 
-// D�compression du raster
+// Décompression du raster
 unsigned char* decompresser(FILE* image, int tailleImage, PCXPalette* imagePalette) {
 	unsigned char temp;
 	int nbRepetition;
@@ -161,7 +157,7 @@ unsigned char getOctet(FILE* image) {
 void afficherAide() {
 	printf("\n\t*** LECTEUR D'IMAGE PCX ***\n");
 	printf("\nNOM :\n");
-	printf("\tpcxr (PCX Reader)\n");
+	printf("\tpcxreader (PCX Reader)\n");
 	printf("\nSYNTAXE :\n");
 	printf("\tpcxr [nom de fichier] [options...]\n");
 	printf("\nDESCRIPTION :\n");
@@ -176,7 +172,6 @@ void afficherAide() {
 	printf("\t-rouge : fait ressortir le rouge de l'image\n");
 	printf("\t-vert : fait ressortir le vert de l'image\n");
 	printf("\t-bleu : fait ressortir le bleu de l'image\n");
-	printf("\t-remb : remplace le rouge fort par du bleu\n");
 	printf("\t-inv : inverse l'image (rotation de 180 degres)\n");
 	printf("\t-zoom2 : Augmente la taille de l'image par 2\n");
 	printf("\t-zoom3 : Augmente la taille de l'image par 3\n");
@@ -188,6 +183,6 @@ void afficherAide() {
 	printf("\nINFORMATIONS :\n");
 	printf("\tAppuyez sur \"Echap\" pour quitter le lecteur\n");
 	printf("\nAUTEUR :\n");	
-	printf("\tMathieu D., 2007\n");
+	printf("\tMatschieu, 2007\n");
 	printf("\n");
 }

@@ -1,12 +1,8 @@
-/*
-Projet d'ASR2, semestre 2
-Matschieu
-DUT informatique, 1ère annee, groupe E
-*/
+/* @author Matschieu */
 
 #define TAILLE_PALETTE 256
 
-// D�claration de strcutures
+// Déclaration de strcutures
 typedef struct {
 	unsigned char manufacturer;
 	unsigned char version;
@@ -33,7 +29,7 @@ typedef struct {
 	unsigned char bleu;
 } PCXPalette;
 
-// D�claration de fonctions
+// Déclaration de fonctions
 void effetNegatif(PCXPalette* palette);
 void effetNoir(PCXPalette* palette);
 void effetRougeGris(PCXPalette* palette);

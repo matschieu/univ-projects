@@ -7,8 +7,8 @@ LDFLAGS = -lX11
 
 all: tga clean
 
+# $(LDFLAGS) needs to be after the .o files else it will fail on linkage
 tga: main.o tga.o analyze.o window.o
-	# $(LDFLAGS) needs to be after the .o files else it will fail on linkage
 	$(CC) main.o tga.o analyze.o window.o $(LDFLAGS) -o tga
 analyze.o: analyze/analyze.o
 	mv analyze/*.o .

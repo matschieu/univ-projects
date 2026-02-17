@@ -1,13 +1,9 @@
-/*
-Projet d'ASR2, semestre 2
-Matschieu
-DUT informatique, 1ère année, groupe E
-*/
+/* @author Matschieu */
 
 #include "pcxr.h"
 #include <stdlib.h>
 
-// Applique un effet n�gatif � l'image
+// Applique un effet négatif à l'image
 void effetNegatif(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -17,7 +13,7 @@ void effetNegatif(PCXPalette* palette) {
 	}
 }
 
-// Applique un effet noir et blanc � l'image
+// Applique un effet noir et blanc à l'image
 void effetNoir(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -93,7 +89,7 @@ void inversion(unsigned char* buffer, int tailleImage) {
 		}
 }
 
-// Applique un effet de neige � l'image
+// Applique un effet de neige à l'image
 void effetNeige(unsigned char* buffer, int tailleImage) {
 	int i;
 	char couleur;
@@ -105,7 +101,7 @@ void effetNeige(unsigned char* buffer, int tailleImage) {
 
 }
 
-// Applique un effet de saturation � l'image
+// Applique un effet de saturation à l'image
 void effetSaturation(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -115,7 +111,7 @@ void effetSaturation(PCXPalette* palette) {
 	}
 }
 
-// Applique un effet gris-blanc � l'image
+// Applique un effet gris-blanc à l'image
 void effetGrisBlanc(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -123,7 +119,7 @@ void effetGrisBlanc(PCXPalette* palette) {
 	}
 }
 
-// M�lange les couleurs de l'image
+// Mélange les couleurs de l'image
 void melangeCouleurs(PCXPalette* palette) {
 	int i, alea;
 	PCXPalette temp;
