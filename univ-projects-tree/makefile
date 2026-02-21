@@ -6,12 +6,12 @@ CC      = gcc
 CFLAGS  = -Wall -ansi -pedantic
 CFLAGS += -g
 
-tree: main.o tree.o bam.o
+tree: src/main.o src/tree.o src/bam.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 .PHONY: clean realclean
 clean:
-	$(RM) *.o
+	$(RM) src/*.o
 realclean : clean
 	$(RM) tree
 

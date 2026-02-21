@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.matschieu</groupId>
+		<artifactId>univ-projects</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>univ-projects-pcx-reader</artifactId>
+	<name>univ-projects-pcx-reader</name>
+	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.43.4</version>
+				<configuration>
+					<images>
+						<image>
+							<name>pcxreader-img</name>
+							<build>
+								<dockerFileDir>${project.basedir}</dockerFileDir>
+							</build>
+							<run>
+								<ports>
+									<port>8080:8080</port>
+								</ports>
+								<env>
+									<DISPLAY>${DISPLAY}</DISPLAY>
+								</env>
+								<volumes>
+									<bind>
+										<volume>/tmp/.X11-unix:/tmp/.X11-unix</volume>
+									</bind>
+									<bind>
+										<volume>/dev/dri:/dev/dri</volume>
+									</bind>
+								</volumes>
+							</run>
+						</image>
+					</images>
+				</configuration>
+				<executions>
+					<execution>
+						<id>build-and-start</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>start</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

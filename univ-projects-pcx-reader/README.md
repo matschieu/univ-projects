@@ -5,11 +5,12 @@ Lecture d'un fichier image au format PCX
 
 # Exécution
 
-Depuis un terminal Linux, lancer le script `./pcxreader.sh` qui se charge de démarrer un docker avec tout ce qu'il faut pour pouvoir compiler le code en 32 bit en utilisant la lib SDL1.2 (contraintes imposées par display.o).
+Depuis un terminal Linux, lancer la commande `make docker` qui se charge de démarrer un docker avec tout ce qu'il faut pour pouvoir compiler le code en 32 bit en utilisant la lib SDL1.2 (contraintes imposées par display.o).
 
 Une fois le container démarré et le code compilé, il suffit de lancer la commande `./pcxreader` pour obtenir l'aide sur l'utilisation du programme.
 
-Pour afficher une image PCX dans une fenêtre, il faut lancer la commande `./pcxreader pcx/<image>`. Des effets peuvent être appliqués à l'image en spécifiant les bons paramètres. Pour quitter la fenêtre, il faut appuyer sur "echap".
+Pour afficher une image PCX dans une fenêtre, il faut lancer la commande `./pcxreader pcx/<image>`. Des effets peuvent être appliqués à l'image en spécifiant les bons arguments à la commande.
+Pour quitter la fenêtre, il faut appuyer sur "echap".
 
 # Sujet
 

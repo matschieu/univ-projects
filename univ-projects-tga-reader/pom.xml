@@ -10,8 +10,7 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>univ-projects-system</artifactId>
-	<name>univ-projects-system</name>
+	<artifactId>univ-projects-tga-reader</artifactId>
+	<name>univ-projects-tga-reader</name>
 	<packaging>pom</packaging>
-
 </project>

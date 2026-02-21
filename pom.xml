@@ -22,6 +22,11 @@
 		<module>univ-projects-color</module>
 		<module>univ-projects-tictactoe</module>
 		<module>univ-projects-bourse</module>
+		<module>univ-projects-pcx-reader</module>
+		<module>univ-projects-disk</module>
+		<module>univ-projects-memory</module>
+		<module>univ-projects-tree</module>
+		<module>univ-projects-tga-reader</module>
 	</modules>
 
 	<properties>

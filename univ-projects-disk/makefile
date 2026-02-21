@@ -1,14 +1,14 @@
 
 CC      = gcc
-CFLAGS  = -Wall -Werror -ansi -pedantic
+#CFLAGS  = -Wall -Werror -ansi -pedantic
+CFLAGS  = -Wall -Werror -ansi
 CFLAGS += -std=iso9899:1999
 CFLAGS += -g
 
-#ROOTDIR	=/home/enseign/ASE
-ROOTDIR	=../sim
+ROOTDIR	= ./sim
 LIBDIR  = $(ROOTDIR)/lib
 INCDIR  = -I$(ROOTDIR)/include -I./include
-LIBS    = -L$(LIBDIR) -lhardware
+LIBS    = -L$(LIBDIR) #-lhardware
 SRCDIR	= src
 EXEC    = mkhd frmt dmps vm mknfs dfs test_bloc
 OTHS	= drive mbr vol super mtools inode
@@ -47,4 +47,3 @@ realclean : clean cleanexec
 	$(RM) vdiskA.bin vdiskB.bin
 depend : 
 	$(CC) $(CFLAGS) -MM $(INCDIR) $(SRCDIR)/*.c 
-

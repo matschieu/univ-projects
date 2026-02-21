@@ -8,16 +8,18 @@ LDFLAGS = -lX11
 all: tga clean
 
 # $(LDFLAGS) needs to be after the .o files else it will fail on linkage
-tga: main.o tga.o analyze.o window.o
-	$(CC) main.o tga.o analyze.o window.o $(LDFLAGS) -o tga
-analyze.o: analyze/analyze.o
-	mv analyze/*.o .
-window.o: window/window.o
-	mv window/*.o .
+tga: src/main.o src/tga.o src/analyze/analyze.o src/window/window.o
+	$(CC) src/main.o src/tga.o src/analyze/analyze.o src/window/window.o $(LDFLAGS) -o tga
+	
+#analyze.o: analyze/analyze.o
+#	mv analyze/*.o .
+#window.o: window/window.o
+#	mv window/*.o .
 
 .PHONY: clean realclean
 
 clean:
-	$(RM) *.o
+	$(RM) src/*.o
+	$(RM) src/*/*.o
 realclean : clean
 	$(RM) tga
