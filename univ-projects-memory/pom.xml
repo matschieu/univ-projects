@@ -13,4 +13,37 @@
 	<artifactId>univ-projects-memory</artifactId>
 	<name>univ-projects-memory</name>
 	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.48.1</version>
+				<configuration>
+					<images>
+						<image>
+							<name>memory-img</name>
+							<build>
+								<dockerFileDir>${project.basedir}</dockerFileDir>
+							</build>
+						</image>
+					</images>
+				</configuration>
+				<executions>
+					<execution>
+						<id>build-and-start</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>start</goal>
+							<goal>stop</goal>
+							<goal>remove</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

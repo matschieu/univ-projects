@@ -3,12 +3,12 @@ CC      = gcc
 #CFLAGS  = -Wall -Werror -ansi -pedantic
 CFLAGS  = -Wall -Werror -ansi
 CFLAGS += -std=iso9899:1999
-CFLAGS += -g
+CFLAGS += -g -m32
 
 ROOTDIR	= ./sim
 LIBDIR  = $(ROOTDIR)/lib
 INCDIR  = -I$(ROOTDIR)/include -I./include
-LIBS    = -L$(LIBDIR) #-lhardware
+LIBS    = -L$(LIBDIR) -lhardware
 SRCDIR	= src
 EXEC    = mkhd frmt dmps vm mknfs dfs test_bloc
 OTHS	= drive mbr vol super mtools inode
@@ -47,3 +47,9 @@ realclean : clean cleanexec
 	$(RM) vdiskA.bin vdiskB.bin
 depend : 
 	$(CC) $(CFLAGS) -MM $(INCDIR) $(SRCDIR)/*.c 
+	
+docker:
+	docker build -t disk-img . && docker run --rm -it disk-img /bin/bash
+docker-clean:
+	docker rmi disk-img
+	docker system prune -f --volumes

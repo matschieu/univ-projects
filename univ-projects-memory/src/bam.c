@@ -132,7 +132,7 @@ void* bam_realloc(void* ptr, size_t size, char* filename, unsigned line) {
 		}
 		ulist = ulist->next;
 	}
-	if (!ulist) ip_error_display(ptr, "bam_realloc", filename, line);
+	if (!ulist) ip_error_display(ptr, "bam_realloc", filename, line, 0);
 	for(i = 0; i < old_size && i < size; i++) ret[i] = old[i];
 	bam_free(ptr, __FILE__, __LINE__);
 	return (void*)ret;
@@ -157,7 +157,7 @@ void bam_free(void* ptr, char* filename, unsigned line) {
 		prev = ulist;
 		ulist = ulist->next;
 	}
-	if (!ulist) ip_error_display(ptr, "bam_free", filename, line);
+	if (!ulist) ip_error_display(ptr, "bam_free", filename, line, 1);
 	for(i = 0; i < ulist->seg_size; i++) p[i] = rand() % 10;
 	prev = NULL;
 	padd = (char*)ulist->seg_start;
@@ -185,12 +185,12 @@ void bam_free(void* ptr, char* filename, unsigned line) {
 
 /* DISPLAY MEMORY STATE FUNCTION */
 
-void ip_error_display(void* ptr, char* function, char* filename, unsigned line) {
+void ip_error_display(void* ptr, char* function, char* filename, unsigned line, int retcode) {
 	fprintf(stderr, "Error in file %s at line %d\n", filename, line);
 	fprintf(stderr, "%s : Invalid pointer 0x%x\n", function, (int)ptr);
 	fprintf(stderr, "This pointer was not allocated\n");
 	memory_display();
-	exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE + retcode);
 }
 
 void memory_display() {

@@ -82,3 +82,5 @@ permet de nettoyer les fichiers .o.
 permet de nettoyer tous les exécutables et fichiers .o
 * `make realclean`\
 permet de nettoyer l'ensemble des fichiers .o, les exécutables et les fichiers représentant les disques durs créés par l'exécution des programmes.
+* `make docker`\
+permet de démarrer une image docker qui va compiler les programmes et exécuter la commande autotest.sh.

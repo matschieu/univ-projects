@@ -12,7 +12,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <dirent.h>
-#include "bam.h"
 #include "tree.h"
 
 int stringcmp(const void* p1, const void* p2) {

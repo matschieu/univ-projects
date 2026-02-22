@@ -19,7 +19,7 @@
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.43.4</version>
+				<version>0.48.1</version>
 				<configuration>
 					<images>
 						<image>
@@ -53,6 +53,8 @@
 						<goals>
 							<goal>build</goal>
 							<goal>start</goal>
+							<goal>stop</goal>
+							<goal>remove</goal>
 						</goals>
 					</execution>
 				</executions>

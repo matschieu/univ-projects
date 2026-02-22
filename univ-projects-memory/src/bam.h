@@ -27,12 +27,12 @@ struct mem_block_st {
 #define LINKTAB_SIZE 1024
 #define DEF_SIZE 10
 #define COEFF 2
-/*
+
 #define malloc(sz) bam_malloc(sz, __FILE__, __LINE__)
 #define calloc(nb,sz) bam_calloc(nb, sz, __FILE__, __LINE__)
 #define realloc(ptr,sz) bam_realloc(ptr, sz, __FILE__, __LINE__)
 #define free(ptr) bam_free(ptr, __FILE__, __LINE__)
-*/
+
 void init_rand(); __attribute__ ((constructor))
 
 /* MEMORY SEGMENT FUNCTIONS */
@@ -97,7 +97,7 @@ void bam_free(void* ptr, char* filename, unsigned line);
 /* Display an invalid pointer error (used by free and realloc).
    Exit the program on an error.
 */
-void ip_error_display(void* ptr, char* function, char* filename, unsigned line);
+void ip_error_display(void* ptr, char* function, char* filename, unsigned line, int retcode);
 
 /* Display the state of the memory heap
 */
