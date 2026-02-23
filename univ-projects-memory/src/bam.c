@@ -6,13 +6,14 @@
 /* 2008            */
 /*******************/
 
+#define _DEFAULT_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
 #include "bam.h"
 
-void init_rand() { srand(time(NULL)); }
+void init_rand() { srand((unsigned int)time(NULL)); }
 
 /* GLOBAL STATIC VARIABLES */
 
@@ -35,11 +36,11 @@ Memseg_t* get_memseg() {
 	return NULL;
 }
 
-Memseg_t* init_link(Memseg_t* next, int size) {
+Memseg_t* init_link(Memseg_t* next, size_t size) {
 	Memseg_t* seg = get_memseg();
 	
 	seg->next = next;
-	seg->seg_start = (void*)sbrk(size);
+	seg->seg_start = (void*)sbrk((intptr_t)size);
 	seg->seg_size = size;
 	
 	return seg;
@@ -55,7 +56,7 @@ void clear_link(Memseg_t* ptr) {
 void* bam_calloc(size_t nmemb, size_t size, char* filename, unsigned line) {
 	void* ret = bam_malloc(nmemb * size, filename, line);
 	char* p = (char*)ret;
-	int i, j;
+	size_t i, j;
 	
 	for(i = 0; i < nmemb; i++) {
 		for(j = 0; j < size; j++) *(p + i + j) = 0;
@@ -72,7 +73,7 @@ void* bam_malloc(size_t size, char* filename, unsigned line) {
 	}
 	
 	if (!free_blocks) {
-		int sz = DEF_SIZE * DEF_SIZE;
+		size_t sz = DEF_SIZE * DEF_SIZE;
 		if (size > sz) {
 			sz = size * COEFF;
 		}
@@ -83,7 +84,7 @@ void* bam_malloc(size_t size, char* filename, unsigned line) {
 	
 	if (!ret) {
 		Memseg_t* c = free_blocks;
-		int sz = DEF_SIZE * DEF_SIZE;
+		size_t sz = DEF_SIZE * DEF_SIZE;
 		if (size > sz) {
 			sz = size * 2;
 		}
@@ -96,9 +97,9 @@ void* bam_malloc(size_t size, char* filename, unsigned line) {
 	
 	if (ret) {
 		char* p = (char*)ret;
-		int i;
+		size_t i;
 		for(i = 0; i < size; i++) {
-			p[i] = rand() % 10;
+			p[i] = (char)(rand() % 10);
 		}
 	}
 	
@@ -136,7 +137,7 @@ void* firstfit(size_t size) {
 	return NULL;
 }
 
-void add_to_used_block(void* start, int size) {
+void add_to_used_block(void* start, size_t size) {
 	Memseg_t* seg = get_memseg();
 	Memseg_t* list = used_blocks;
 	
@@ -160,7 +161,7 @@ void* bam_realloc(void* ptr, size_t size, char* filename, unsigned line) {
 	Memseg_t* ulist = used_blocks;
 	char* ret = (char*)bam_malloc(size, filename, line);
 	char* old = (char*)ptr;
-	int old_size, i;
+	size_t old_size, i;
 	
 	if (!ptr) {
 		return NULL;
@@ -195,7 +196,7 @@ void bam_free(void* ptr, char* filename, unsigned line) {
 	Memseg_t* flist = free_blocks;
 	char* padd, * nadd;
 	char* p = (char*)ptr;
-	int i;
+	size_t i;
 	
 	if (!ptr) {
 		return;
@@ -219,7 +220,7 @@ void bam_free(void* ptr, char* filename, unsigned line) {
 	}
 	
 	for(i = 0; i < ulist->seg_size; i++) {
-		p[i] = rand() % 10;
+		p[i] = (char)(rand() % 10);
 	}
 	
 	prev = NULL;
@@ -256,7 +257,7 @@ void bam_free(void* ptr, char* filename, unsigned line) {
 
 void ip_error_display(void* ptr, char* function, char* filename, unsigned line, int retcode) {
 	fprintf(stderr, "Error in file %s at line %d\n", filename, line);
-	fprintf(stderr, "%s : Invalid pointer 0x%x\n", function, (int)ptr);
+	fprintf(stderr, "%s : Invalid pointer 0x%p\n", function, ptr);
 	fprintf(stderr, "This pointer was not allocated\n");
 	memory_display();
 	exit(EXIT_FAILURE + retcode);
@@ -269,13 +270,13 @@ void memory_display() {
 	
 	printf("=MEMORY_STATE===================\n");
 	printf("* => START ADDRESSES :\n");
-	printf("*\tfree_blocks = %x\n", (unsigned int)free_blocks);
-	printf("*\tused_blocks = %x\n", (unsigned int)used_blocks);	
+	printf("*\tfree_blocks = %p\n", (void*)free_blocks);
+	printf("*\tused_blocks = %p\n", (void*)used_blocks);	
 	printf("* => FREE BLOCKS :\n");
 	
 	while(pt) {
-		printf("*\tf[%x | start:%x | size:%d | next:%x]\n", 
-				(unsigned int)pt, (unsigned int)pt->seg_start, pt->seg_size, (unsigned int)pt->next);
+		printf("*\tf[%p | start:%p | size:%ld | next:%p]\n", 
+				(void*)pt, (void*)pt->seg_start, pt->seg_size, (void*)pt->next);
 		pt = pt->next;
 		cpt1++;
 	}
@@ -285,8 +286,8 @@ void memory_display() {
 	printf("* => USED BLOCKS :\n");
 	
 	while(pt) {
-		printf("*\tu[%x | start:%x | size:%d | next:%x]\n", 
-				(unsigned int)pt, (unsigned int)pt->seg_start, pt->seg_size, (unsigned int)pt->next);
+		printf("*\tu[%p | start:%p | size:%ld | next:%p]\n", 
+				(void*)pt, (void*)pt->seg_start, pt->seg_size, (void*)pt->next);
 		pt = pt->next;
 		cpt2++;
 	}

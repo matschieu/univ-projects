@@ -6,14 +6,14 @@
 
 CC      = gcc
 CFLAGS  = -Wall -ansi -pedantic
-CFLAGS += -g -m32
+CFLAGS += -g -Wconversion
 
 memory: src/main.o src/bam.o
 	$(CC) $(CFLAGS) -o $@ $^
 libmalloc:
 	$(CC) $(CFLAGS) -D_XOPEN_SOURCE=500 -g -fPIC -c src/malloc.c
 	$(CC) $(CFLAGS) -D_XOPEN_SOURCE=500 -g -fPIC -c src/bam.c
-	$(CC) -m32 -shared -Wl,-soname,libmalloc.so -o libmalloc.so malloc.o bam.o
+	$(CC) -shared -Wl,-soname,libmalloc.so -o libmalloc.so malloc.o bam.o
 	export LD_PRELOAD=./libmalloc.so
 
 .PHONY: clean realclean

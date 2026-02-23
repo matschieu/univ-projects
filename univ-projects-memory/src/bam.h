@@ -21,17 +21,19 @@ typedef struct mem_block_st Memseg_t;
 struct mem_block_st {
 	Memseg_t* next;
 	void* seg_start;
-	int seg_size;
+	size_t seg_size;
 };
 
 #define LINKTAB_SIZE 1024
 #define DEF_SIZE 10
 #define COEFF 2
 
+#ifdef __PLUG_BAM__
 #define malloc(sz) bam_malloc(sz, __FILE__, __LINE__)
-#define calloc(nb,sz) bam_calloc(nb, sz, __FILE__, __LINE__)
-#define realloc(ptr,sz) bam_realloc(ptr, sz, __FILE__, __LINE__)
+#define calloc(nb, sz) bam_calloc(nb, sz, __FILE__, __LINE__)
+#define realloc(ptr, sz) bam_realloc(ptr, sz, __FILE__, __LINE__)
 #define free(ptr) bam_free(ptr, __FILE__, __LINE__)
+#endif
 
 void init_rand(); __attribute__ ((constructor))
 
@@ -44,7 +46,7 @@ Memseg_t* get_memseg();
 
 /* Create and return a new memory block
 */
-Memseg_t* init_link(Memseg_t* next, int size);
+Memseg_t* init_link(Memseg_t* next, size_t size);
 
 /* Clear the list link ptr.
    ptr may be used later.
@@ -74,7 +76,7 @@ void* firstfit(size_t size);
 /* A a free memory block to used blocks list.
    This block has a size of size and begin at start address.
    */
-void add_to_used_block(void* start, int size);
+void add_to_used_block(void* start, size_t size);
 
 /* REALLOC FUNCTION */
 

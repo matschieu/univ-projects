@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#define __PLUG_BAM__
 #include "bam.h"
 
 /* #define DEBUG
@@ -16,7 +17,9 @@
 int main(int argc, char** argv) {
 	char* a, * b, * c;
 	int* d, * e;
-	int i, t = 0;
+	size_t t = 0;
+	int i = 0;
+	
 	a = b = c = 0;
 	d = e = 0;
 	
@@ -25,11 +28,11 @@ int main(int argc, char** argv) {
 	printf("** Array allocation (malloc and calloc) **\n\n");
 	
 	t = 100 * sizeof(char);
-	printf("Trying to allocate a with malloc (%d bytes)... ", t);
+	printf("Trying to allocate a with malloc (%ld bytes)... ", t);
 	a = (char*)malloc(t);
 	
 	if (a) {
-		printf("OK\nMalloc returned 0x%x\n\n", (int)a);
+		printf("OK\nMalloc returned 0x%p\n\n", a);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -40,11 +43,11 @@ int main(int argc, char** argv) {
 	#endif
 	
 	t = 1000 * sizeof(char);
-	printf("Trying to allocate b with malloc (%d bytes)... ", t);
+	printf("Trying to allocate b with malloc (%ld bytes)... ", t);
 	b = (char*)malloc(t);
 	
 	if (b) {
-		printf("OK\nMalloc returned 0x%x\n\n", (int)b);
+		printf("OK\nMalloc returned 0x%p\n\n", b);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -55,11 +58,11 @@ int main(int argc, char** argv) {
 	#endif
 	
 	t = 500 * sizeof(char);
-	printf("Trying to allocate c with malloc (%d bytes)... ", t);
+	printf("Trying to allocate c with malloc (%ld bytes)... ", t);
 	c = (char*)malloc(t);
 	
 	if (c) {
-		printf("OK\nMalloc returned 0x%x\n\n", (int)c);
+		printf("OK\nMalloc returned 0x%p\n\n", c);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -70,11 +73,11 @@ int main(int argc, char** argv) {
 	#endif
 	
 	t = 500 * sizeof(int);
-	printf("Trying to allocate d with calloc (%d bytes)... ", t);
+	printf("Trying to allocate d with calloc (%ld bytes)... ", t);
 	d = (int*)calloc(500, sizeof(int));
 	
 	if (d) {
-		printf("OK\ncalloc returned 0x%x\n\n", (int)d);
+		printf("OK\ncalloc returned 0x%p\n\n", (void*)d);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -85,11 +88,11 @@ int main(int argc, char** argv) {
 	#endif
 	
 	t = 250 * sizeof(int);
-	printf("Trying to allocate e with calloc (%d bytes)... ", t);
+	printf("Trying to allocate e with calloc (%ld bytes)... ", t);
 	e = (int*)calloc(250, sizeof(int));
 	
 	if (e) {
-		printf("OK\ncalloc returned 0x%x\n\n", (int)e);
+		printf("OK\ncalloc returned 0x%p\n\n", (void*)e);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -123,21 +126,21 @@ int main(int argc, char** argv) {
 	
 	printf("d[i] = [");
 	for(i = 0; i < 10; i++) {
-		printf("%d, ", d[i]);
+		printf("%d, ", ((int*)d)[i]);
 	}
 	printf("]\n");
 
 	printf("e[i] = [");
 	for(i = 0; i < 10; i++) {
-		printf("%d, ", e[i]);
+		printf("%d, ", ((int*)e)[i]);
 	}
 	printf("]\n\n");
 	
 	/* Initialisation des tableaux */
 	
-	for(i = 0; i < 10; i++) { a[i] = i; }
-	for(i = 0; i < 10; i++) { b[i] = i; }
-	for(i = 0; i < 10; i++) { c[i] = i; }
+	for(i = 0; i < 10; i++) { a[i] = (char)i; }
+	for(i = 0; i < 10; i++) { b[i] = (char)i; }
+	for(i = 0; i < 10; i++) { c[i] = (char)i; }
 	for(i = 0; i < 10; i++) { d[i] = i; }
 	for(i = 0; i < 10; i++) { e[i] = i; }
 	
@@ -206,11 +209,11 @@ int main(int argc, char** argv) {
 	printf("** Array reallocation (realloc) **\n\n");
 	
 	t = 500 * sizeof(char);
-	printf("Trying to reallocate a with realloc (%d bytes)... ", t);
+	printf("Trying to reallocate a with realloc (%ld bytes)... ", t);
 	a = (char*)realloc(a, t);
 	
 	if (a) {
-		printf("OK\nRealloc returned 0x%x\n\n", (int)a);
+		printf("OK\nRealloc returned 0x%p\n\n", a);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -221,11 +224,11 @@ int main(int argc, char** argv) {
 	#endif
 
 	t = 700 * sizeof(int);
-	printf("Trying to reallocate d with realloc (%d bytes)... ", t);
+	printf("Trying to reallocate d with realloc (%ld bytes)... ", t);
 	d = (int*)realloc(d, t);
 	
 	if (d) {
-		printf("OK\nRealloc returned 0x%x\n\n", (int)d);
+		printf("OK\nRealloc returned 0x%p\n\n", (void*)d);
 	} else {
 		printf("ERROR\n\n");
 	}
@@ -327,11 +330,11 @@ int main(int argc, char** argv) {
 	printf("** Array allocation (malloc) **\n\n");
 	
 	t = 100 * sizeof(char);
-	printf("Trying to allocate a with malloc (%d bytes)... ", t);
+	printf("Trying to allocate a with malloc (%ld bytes)... ", t);
 	a = (char*)malloc(t);
 	
 	if (a) {
-		printf("OK\nMalloc returned 0x%x\n\n", (int)a);
+		printf("OK\nMalloc returned 0x%p\n\n", a);
 	} else { 
 		printf("ERROR\n\n");
 	}
@@ -342,17 +345,17 @@ int main(int argc, char** argv) {
 	#endif
 	
 	for(i = 0; i < 10; i++) { 
-		a[i] = i;	
+		a[i] = (char)i;	
 	}
 	
 	printf("** Array reallocation (realloc) **\n\n");
 	
 	t = 500 * sizeof(char);
-	printf("Trying to reallocate a with realloc (%d bytes)... ", t);
+	printf("Trying to reallocate a with realloc (%ld bytes)... ", t);
 	a = (char*)realloc(a, t);
 	
 	if (a) {
-		printf("OK\nRealloc returned 0x%x\n\n", (int)a);
+		printf("OK\nRealloc returned 0x%p\n\n", a);
 	} else {
 		printf("ERROR\n\n");
 	}
