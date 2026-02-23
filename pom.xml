@@ -27,6 +27,7 @@
 		<module>univ-projects-memory</module>
 		<module>univ-projects-tree</module>
 		<module>univ-projects-tga-reader</module>
+		<module>univ-projects-uncompress-4t</module>
 	</modules>
 
 	<properties>

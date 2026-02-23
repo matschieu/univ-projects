@@ -8,6 +8,8 @@ CC      = gcc
 CFLAGS  = -Wall -ansi -pedantic
 CFLAGS += -g -Wconversion
 
+all: memory clean
+
 memory: src/main.o src/bam.o
 	$(CC) $(CFLAGS) -o $@ $^
 libmalloc:

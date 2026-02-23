@@ -6,6 +6,8 @@ CC      = gcc
 CFLAGS  = -Wall -ansi -pedantic
 CFLAGS += -g
 
+all: tree clean
+
 tree: src/main.o src/tree.o
 	$(CC) $(CFLAGS) -o $@ $^
 
