@@ -11,6 +11,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<!-- Java projects -->
 		<module>univ-projects-game</module>
 		<module>univ-projects-chat</module>
 		<module>univ-projects-gol</module>
@@ -22,9 +23,10 @@
 		<module>univ-projects-color</module>
 		<module>univ-projects-tictactoe</module>
 		<module>univ-projects-bourse</module>
+		<!-- C projects -->
 		<module>univ-projects-pcx-reader</module>
-		<module>univ-projects-disk</module>
-		<module>univ-projects-memory</module>
+		<module>univ-projects-disk-mngt</module>
+		<module>univ-projects-memory-mngt</module>
 		<module>univ-projects-tree</module>
 		<module>univ-projects-tga-reader</module>
 		<module>univ-projects-uncompress-4t</module>
