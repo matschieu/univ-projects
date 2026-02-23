@@ -25,9 +25,10 @@ clean:
 realclean : clean
 	$(RM) memory libmalloc.so
 
-docker:
-	docker build -t memory-img . && docker run --rm -it memory-img /bin/bash
-docker-clean:
-	docker rmi memory-img
-	docker system prune -f --volumes
+DOCKER-IMG = memory-mngt-img
 
+docker:
+	docker build -t $(DOCKER-IMG) . && docker run --rm -it $(DOCKER-IMG) /bin/bash
+docker-clean:
+	docker rmi $(DOCKER-IMG)
+	docker system prune -f --volumes

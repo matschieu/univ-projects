@@ -2,7 +2,7 @@
 
 #define TAILLE_PALETTE 256
 
-// Déclaration de strcutures
+/* Déclaration de strcutures */
 typedef struct {
 	unsigned char manufacturer;
 	unsigned char version;
@@ -29,7 +29,7 @@ typedef struct {
 	unsigned char bleu;
 } PCXPalette;
 
-// Déclaration de fonctions
+/* Déclaration de fonctions */
 void effetNegatif(PCXPalette* palette);
 void effetNoir(PCXPalette* palette);
 void effetRougeGris(PCXPalette* palette);

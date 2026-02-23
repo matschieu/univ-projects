@@ -1,6 +1,6 @@
 CC      = gcc
-#CFLAGS  = -Wall -Werror -ansi -pedantic
-CFLAGS  = -m32
+CFLAGS  = -Wall -Werror -ansi -pedantic
+CFLAGS  += -m32
 LDFLAGS = -lSDL `sdl-config --cflags –libs`
 
 all: pcxreader clean
@@ -17,10 +17,12 @@ clean:
 cleanall : clean
 	$(RM) pcxreader
 
+DOCKER-IMG = 4t-reader-img
+
 docker:
 	xhost +local:docker
-	docker build -t pcxreader-img . && docker run --rm -it -e DISPLAY=$$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/dri:/dev/dri pcxreader-img /bin/bash
+	docker build -t $(DOCKER-IMG) . && docker run --rm -it -e DISPLAY=$$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/dri:/dev/dri $(DOCKER-IMG) /bin/bash
 	xhost -local:docker
 docker-clean:
-	docker rmi pcxreader-img
+	docker rmi $(DOCKER-IMG)
 	docker system prune -f --volumes

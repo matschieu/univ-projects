@@ -47,9 +47,11 @@ realclean : clean cleanexec
 	$(RM) vdiskA.bin vdiskB.bin
 depend : 
 	$(CC) $(CFLAGS) -MM $(INCDIR) $(SRCDIR)/*.c 
-	
+
+DOCKER-IMG = disk-mngt-img
+
 docker:
-	docker build -t disk-img . && docker run --rm -it disk-img /bin/bash
+	docker build -t $(DOCKER-IMG) . && docker run --rm -it $(DOCKER-IMG) /bin/bash
 docker-clean:
-	docker rmi disk-img
+	docker rmi $(DOCKER-IMG)
 	docker system prune -f --volumes

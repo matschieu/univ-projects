@@ -13,4 +13,13 @@
 	<artifactId>univ-projects-uncompress-4t</artifactId>
 	<name>univ-projects-uncompress-4t</name>
 	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

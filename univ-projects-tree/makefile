@@ -18,3 +18,10 @@ clean:
 realclean : clean
 	$(RM) tree
 
+DOCKER-IMG = tree-img
+
+docker:
+	docker build -t $(DOCKER-IMG) . && docker run --rm -it $(DOCKER-IMG) /bin/bash
+docker-clean:
+	docker rmi $(DOCKER-IMG)
+	docker system prune -f --volumes

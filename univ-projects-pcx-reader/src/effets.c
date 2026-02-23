@@ -3,7 +3,7 @@
 #include "pcxr.h"
 #include <stdlib.h>
 
-// Applique un effet négatif à l'image
+/* Applique un effet négatif à l'image */
 void effetNegatif(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -13,7 +13,7 @@ void effetNegatif(PCXPalette* palette) {
 	}
 }
 
-// Applique un effet noir et blanc à l'image
+/* Applique un effet noir et blanc à l'image */
 void effetNoir(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -21,9 +21,8 @@ void effetNoir(PCXPalette* palette) {
 	}
 }
 
-// Fait ressortir le rouge de l'image
+/* Fait ressortir le rouge de l'image */
 void effetRougeGris(PCXPalette* palette) {
-	char temp;
 	int i;
 	double tauxRouge;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -34,9 +33,8 @@ void effetRougeGris(PCXPalette* palette) {
 	}
 }
 
-// Fait ressortir le vert de l'image
+/* Fait ressortir le vert de l'image */
 void effetVertGris(PCXPalette* palette) {
-	char temp;
 	int i;
 	double tauxVert;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -47,9 +45,8 @@ void effetVertGris(PCXPalette* palette) {
 	}
 }
 
-// Fait ressortir le bleu de l'image
+/* Fait ressortir le bleu de l'image */
 void effetBleuGris(PCXPalette* palette) {
-	char temp;
 	int i;
 	double tauxBleu;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -60,7 +57,7 @@ void effetBleuGris(PCXPalette* palette) {
 	}
 }
 
-// Remplace le rouge fort par du bleu
+/* Remplace le rouge fort par du bleu */
 void rougeEnBleu(PCXPalette* palette) {
 	char temp;
 	int i;
@@ -76,7 +73,7 @@ void rougeEnBleu(PCXPalette* palette) {
 	}	
 }
 
-// Inverse l'image
+/* Inverse l'image */
 void inversion(unsigned char* buffer, int tailleImage) {
 	char temp;
 	int i, j, n;
@@ -89,7 +86,7 @@ void inversion(unsigned char* buffer, int tailleImage) {
 		}
 }
 
-// Applique un effet de neige à l'image
+/* Applique un effet de neige à l'image */
 void effetNeige(unsigned char* buffer, int tailleImage) {
 	int i;
 	char couleur;
@@ -101,7 +98,7 @@ void effetNeige(unsigned char* buffer, int tailleImage) {
 
 }
 
-// Applique un effet de saturation à l'image
+/* Applique un effet de saturation à l'image */
 void effetSaturation(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -111,7 +108,7 @@ void effetSaturation(PCXPalette* palette) {
 	}
 }
 
-// Applique un effet gris-blanc à l'image
+/* Applique un effet gris-blanc à l'image */
 void effetGrisBlanc(PCXPalette* palette) {
 	int i;
 	for(i = 0; i < TAILLE_PALETTE; i++) {
@@ -119,7 +116,7 @@ void effetGrisBlanc(PCXPalette* palette) {
 	}
 }
 
-// Mélange les couleurs de l'image
+/* Mélange les couleurs de l'image */
 void melangeCouleurs(PCXPalette* palette) {
 	int i, alea;
 	PCXPalette temp;
@@ -131,7 +128,7 @@ void melangeCouleurs(PCXPalette* palette) {
 	}
 }
 
-// Agrandit l'image
+/* Agrandit l'image */
 unsigned char* agrandir(unsigned char* buffer, int ratio, int* tailleX, int* tailleY, int* tailleImage) {
 	unsigned char* bufferTemp;
 	int i, j, k;
@@ -159,32 +156,3 @@ unsigned char* agrandir(unsigned char* buffer, int ratio, int* tailleX, int* tai
 	free(buffer);
 	return bufferTemp;
 }
-
-/*
-// Agrandit l'image (x2)
-unsigned char* agrandir(unsigned char* buffer, int* tailleX, int* tailleY) {
-	unsigned char* bufferTemp;
-	int i, j;
-	int idx1, idx2, idx3;
-	*tailleX *= 2;
-	*tailleY *= 2;
-	bufferTemp = (unsigned char*)calloc(*tailleX * *tailleY * 3, sizeof(char));
-	idx1 = idx2 = idx3 = 0;
-	while(idx1 < *tailleX * *tailleY * 3) {
-		for(i = 1; i < 3; i++) {
-			for(j = 0; j < *tailleX * 3 / 2; j += 3){
-				*(bufferTemp + idx1 + 0) = *(bufferTemp + idx1 + 3) = *(buffer + idx2);
-				*(bufferTemp + idx1 + 1) = *(bufferTemp + idx1 + 4) = *(buffer + idx2 + 1);
-				*(bufferTemp + idx1 + 2) = *(bufferTemp + idx1 + 5) = *(buffer + idx2 + 2);
-				idx1 += 6;
-				idx2 += 3;
-			}
-			if (i % 2 == 1) idx2 = idx3;
-		}
-		idx3 = idx2;
-	}
-	free(buffer);
-	return bufferTemp;
-	
-}
-*/

@@ -5,16 +5,11 @@ CC      = gcc
 CFLAGS  = -Wall -Werror -ansi -pedantic
 LDFLAGS = -lX11
 
-all: tga clean
+all: tgareader clean
 
 # $(LDFLAGS) needs to be after the .o files else it will fail on linkage
-tga: src/main.o src/tga.o src/analyze/analyze.o src/window/window.o
+tgareader: src/main.o src/tga.o src/analyze/analyze.o src/window/window.o
 	$(CC) src/main.o src/tga.o src/analyze/analyze.o src/window/window.o $(LDFLAGS) -o tga
-	
-#analyze.o: analyze/analyze.o
-#	mv analyze/*.o .
-#window.o: window/window.o
-#	mv window/*.o .
 
 .PHONY: clean realclean
 
@@ -23,3 +18,13 @@ clean:
 	$(RM) src/*/*.o
 realclean : clean
 	$(RM) tga
+
+DOCKER-IMG = tga-reader-img
+
+docker:
+	xhost +local:docker
+	docker build -t $(DOCKER-IMG) . && docker run --rm -it -e DISPLAY=$$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/dri:/dev/dri $(DOCKER-IMG) /bin/bash
+	xhost -local:docker	
+docker-clean:
+	docker rmi $(DOCKER-IMG)
+	docker system prune -f --volumes

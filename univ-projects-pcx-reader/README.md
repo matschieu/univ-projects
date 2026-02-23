@@ -12,6 +12,20 @@ Une fois le container démarré et le code compilé, il suffit de lancer la comm
 Pour afficher une image PCX dans une fenêtre, il faut lancer la commande `./pcxreader pcx/<image>`. Des effets peuvent être appliqués à l'image en spécifiant les bons arguments à la commande.
 Pour quitter la fenêtre, il faut appuyer sur "echap".
 
+# MAKEFILE
+
+* `make`\
+compile l'ensemble des exécutables puis nettoie tous les fichiers .o (appel à make clean).
+Attention, il est nécessaire d'avoir la lib SDL1.2 installée en 32 bits.
+* `make clean`\
+permet de nettoyer les fichiers .o.
+* `make realclean`\
+permet de nettoyer l'ensemble des fichiers .o et les exécutables.
+* `make docker`\
+démarre une image Docker qui compile le pogramme.
+* `make docker-clean`\
+permet de nettoyer l'image Docker.
+
 # Sujet
 
 ## Description 

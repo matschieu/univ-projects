@@ -15,3 +15,11 @@ clean:
 	$(RM) src/*.o
 realclean : clean
 	$(RM) uncompress
+
+DOCKER-IMG = 4t-reader-img
+
+docker:
+	docker build -t $(DOCKER-IMG) . && docker run --rm -it $(DOCKER-IMG) /bin/bash
+docker-clean:
+	docker rmi $(DOCKER-IMG)
+	docker system prune -f --volumes

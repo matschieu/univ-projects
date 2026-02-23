@@ -7,15 +7,14 @@
 #include "pcxr.h"
 #include "display.h"
 
-// Déclaration de fonctions
+/* Déclaration de fonctions */
 int verifierParametres(int argc, char** argv);
 unsigned char* decompresser(FILE* image, int tailleImage, PCXPalette* imagePalette);
 unsigned char getOctet(FILE* image);
 void afficherAide();
 
-// Programme principal
+/* Programme principal */
 int main(int argc, char** argv) {
-
 	FILE* image;
 	PCXHeader imageHeader;
 	PCXPalette imagePalette[TAILLE_PALETTE];
@@ -23,40 +22,40 @@ int main(int argc, char** argv) {
 	unsigned char* buffer;
 
 	srand(time(NULL));
-	//system("clear");
+	/*system("clear");*/
 	if ((argc == 1) || (strcmp(argv[1], "-aide") == 0)) {
 		afficherAide();
 		return 0;
 	}
 
-	// Ouverture de l'image
+	/* Ouverture de l'image */
 	image = fopen(argv[1], "r");
 	if (image == NULL) {
 		printf("\nImpossible d'ouvrir le fichier\n\n");
 		return 2;
 	}
 
-	// Vérification de la validité des paramètres
+	/* Vérification de la validité des paramètres */
 	if (verifierParametres(argc, argv) == 1) return 1;
 	
-	// Lecture du header
+	/* Lecture du header */
 	if (fread(&imageHeader, sizeof(PCXHeader), 1, image) == -1) return 1;
 	
-	//Vérification de la version du fichier PCX
+	/* Vérification de la version du fichier PCX */
 	if ((imageHeader.version != 5) || (imageHeader.encoding != 1)) {
 		printf("\nFormat PCX incorrect, seul le format PCX version 5 avec RLE est prit en charge\n\n");
 		return 2;
 	}
 	
-	// Récupère les dimensions de l'image
+	/* Récupère les dimensions de l'image */
 	largeur = (int)(imageHeader.xMax + 1) - (int)(imageHeader.xMin);
 	hauteur = (int)(imageHeader.yMax + 1) - (int)(imageHeader.yMin);
 	tailleImage = largeur * hauteur;
 	
-	// Lecture de la palette
+	/* Lecture de la palette */
 	if (fseek(image, - (TAILLE_PALETTE * sizeof(PCXPalette)), SEEK_END) == -1 || fread(&imagePalette, TAILLE_PALETTE * sizeof(PCXPalette), 1, image) == -1) return 1;
 		
-	// Détermine les effets de couleurs à appliquer
+	/* Détermine les effets de couleurs à appliquer */
 	for(i = 2; i < argc; i++) {
 		if (strcmp(argv[i], "-aide") == 0) afficherAide();
 		if (strcmp(argv[i], "-neg") == 0) effetNegatif(imagePalette);
@@ -70,10 +69,10 @@ int main(int argc, char** argv) {
 		if (strcmp(argv[i], "-melc") == 0) melangeCouleurs(imagePalette);
 	}
 
-	// Lecture du raster
+	/* Lecture du raster */
 	buffer = decompresser(image, tailleImage, imagePalette);
 
-	// Détermine les effets à appliquer sur le raster
+	/* Détermine les effets à appliquer sur le raster */
 	for(i = 2; i < argc; i++) {
 		if (strcmp(argv[i], "-inv") == 0) inversion(buffer, tailleImage);
 		if (strcmp(argv[i], "-neige") == 0) effetNeige(buffer, tailleImage);
@@ -81,18 +80,18 @@ int main(int argc, char** argv) {
 		if (strcmp(argv[i], "-zoom3") == 0) buffer = agrandir(buffer, 3, &largeur, &hauteur, &tailleImage);
 	}
 		
-	// affichage de l'image
-	display(largeur, hauteur, buffer);
+	/* affichage de l'image */
+	display(largeur, hauteur, (char*)buffer);
 	free(buffer);
 	
-	// Fermeture de l'image
+	/* Fermeture de l'image */
 	fclose(image);
 
 	return 0;
 
 }
 
-// Vérification des paramètres de la ligne de commande
+/* Vérification des paramètres de la ligne de commande */
 int verifierParametres(int argc, char** argv) {
 	int i, j, paramValide, cmdValide;
 	char* arguments[15] = {"-aide", "-neg", "-noir", "-gris", "-rouge", "-bleu", "-vert", "-renb", "-sat", "-grib", "-melc", "-inv", "-neige", "-zoom2", "-zoom3"};
@@ -116,7 +115,7 @@ int verifierParametres(int argc, char** argv) {
 	return 0;
 }
 
-// Décompression du raster
+/* Décompression du raster */
 unsigned char* decompresser(FILE* image, int tailleImage, PCXPalette* imagePalette) {
 	unsigned char temp;
 	int nbRepetition;
@@ -124,7 +123,9 @@ unsigned char* decompresser(FILE* image, int tailleImage, PCXPalette* imagePalet
 	int nbOctetRecup;
 	int i;
 	unsigned char* buffer;
-	(fseek(image, sizeof(PCXHeader), SEEK_SET) == -1);
+	if (fseek(image, sizeof(PCXHeader), SEEK_SET) == -1) {
+		printf("Erreur lors de la lecture du header du fichier");
+	}
 	buffer = (unsigned char*)calloc(tailleImage * 3, sizeof(char));
 	nbPixelRecup = nbOctetRecup = 0;
 	while(nbPixelRecup < tailleImage) {
@@ -146,14 +147,14 @@ unsigned char* decompresser(FILE* image, int tailleImage, PCXPalette* imagePalet
 	return buffer;
 }
 
-// Lit et renvoie 1 octet dans le raster
+/* Lit et renvoie 1 octet dans le raster */
 unsigned char getOctet(FILE* image) {
 	unsigned char c;
-	if(fread(&c, sizeof(char), 1, image) == -1) return 1;
+	if (fread(&c, sizeof(char), 1, image) == -1) return 1;
 	return c;
 }
 
-// Affiche l'aide
+/* Affiche l'aide */
 void afficherAide() {
 	printf("\n\t*** LECTEUR D'IMAGE PCX ***\n");
 	printf("\nNOM :\n");

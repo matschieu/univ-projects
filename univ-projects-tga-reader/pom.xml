@@ -13,4 +13,13 @@
 	<artifactId>univ-projects-tga-reader</artifactId>
 	<name>univ-projects-tga-reader</name>
 	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

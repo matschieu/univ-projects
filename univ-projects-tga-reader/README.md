@@ -7,35 +7,40 @@ Analyse d'arguments et traitement d'image TGA
 
 * `make`\
 compile l'ensemble des exécutables puis nettoie tous les fichiers .o (appel à make clean).
+Attention, il est nécessaire d'avoir la lib de développement X11 installée.
 * `make clean`\
 permet de nettoyer les fichiers .o.
 * `make realclean`\
 permet de nettoyer l'ensemble des fichiers .o et les exécutables.
+* `make docker`\
+démarre une image Docker qui compile le pogramme.
+* `make docker-clean`\
+permet de nettoyer l'image Docker.
 
 # Exécution
 
 Afficher l'aide :
 
 ```
-./tga -h
+./tgareader -h
 ```
 
 Afficher une image dans une fenêtre :
 
 ```
-./tga -d -i img/lena.tga
+./tgareader -d -i img/lena.tga
 ```
 
 Afficher une image dans une fenêtre avec un effet négatif :
 
 ```
-./tga -d -i img/lena.tga -n
+./tgareader -d -i img/lena.tga -n
 ```
 
 Copie une image avec un effet négatif dans un autre fichier :
 
 ```
-./tga -d -i img/lena.tga -o img/lena_negatif.tga -n
+./tgareader -d -i img/lena.tga -o img/lena_negatif.tga -n
 ```
 
 # Sujet - Partie 1
