@@ -12,51 +12,21 @@
 
 	<artifactId>univ-projects-maths</artifactId>
 	<name>univ-projects-maths</name>
+	
+	<properties>
+		<jarMainClass>com.github.matschieu.maths.MSysLin</jarMainClass>
+	</properties>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<archive>
-								<manifest>
-									<mainClass>com.github.matschieu.maths.MSysLin</mainClass>
-								</manifest>
-							</archive>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
-                		</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>script-chmod</id>
-						<phase>install</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>chmod</executable>
-							<arguments>
-								<argument>744</argument>
-								<argument>${project.build.outputDirectory}/../${project.name}-${project.version}-jar-with-dependencies.jar</argument>
-							</arguments>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
