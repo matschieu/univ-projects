@@ -23,6 +23,7 @@
 		<module>univ-projects-color</module>
 		<module>univ-projects-tictactoe</module>
 		<module>univ-projects-bourse</module>
+		<module>univ-projects-labyrinthe</module>
 		<!-- C projects -->
 		<module>univ-projects-pcx-reader</module>
 		<module>univ-projects-disk-mngt</module>
